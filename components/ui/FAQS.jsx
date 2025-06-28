@@ -1,4 +1,5 @@
 import { useState } from "react";
+//comentario de prueba de push
 
 export default function FAQS() {
   const [openIndex, setOpenIndex] = useState(null);
