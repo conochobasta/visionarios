@@ -1,0 +1,399 @@
+/* Reset básico y fuente */
+*  {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+body {
+  background-color: #fff;
+  color: #4c51bf; /* índigo 600 */
+  min-height: 100vh;
+  line-height: 1.5;
+}
+
+/* Contenedor general */
+.container {
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem; /* 24px */
+  padding-right: 1.5rem;
+}
+
+/* Logo en navbar */
+nav .logo {
+  font-weight: 700;
+  font-size: 1.25rem; /* text-xl */
+  color: #4c51bf; /* índigo 600 */
+  user-select: none;
+}
+
+/* Enlaces en navbar */
+nav .nav-links a {
+  color: #718096; /* gray-600 */
+  margin-left: 1rem; /* espacio entre links */
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+nav .nav-links a:hover {
+  color: #4c51bf; /* índigo 600 */
+}
+
+/* Espaciado para main (compensa navbar fijo) */
+main {
+  padding-top: 10rem; 
+ /* padding-left: 1.5rem;
+  padding-right: 1.5rem;*/
+  margin: 0 auto;
+}
+
+.form-section{
+    max-width: 36rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+
+/* Botones primarios */
+.btn-secondary, .btn-primary {
+  background-color: #5a67d8; /* índigo 600 */
+  color: white;
+  font-weight: 600;
+  padding: 0.5rem 1rem; /* px-6 py-4 */
+  border-radius: 5px; /* rounded-full */
+  border: none;
+  cursor: pointer;
+  font-size: 1.125rem; /* text-lg */
+  transition: background-color 0.3s ease;
+  display: inline-block;
+  text-align: center;
+  user-select: none;
+}
+.btn-unete{
+    border-radius: 9999px;
+}
+.btn-dark{
+     background-color: rgb(31 41 55 / var(--tw-bg-opacity, 1));
+     
+}
+.btn-dark:hover{
+    background-color: rgb(17, 24, 39);
+}
+
+.btn-form{
+    width: 100%;
+}
+
+.btn-primary:hover {
+  background-color: #3730a3; /* índigo 700 */
+}
+
+.join-container{
+    display: flex;
+    justify-content: center;
+}
+
+/* Formularios */
+input[type="text"], input[type="email"], input[type="password"] {
+  width: 100%;
+  padding: 0.5rem 1rem; /* p-2 */
+  font-size: 1rem;
+  border: 1px solid #cbd5e0; /* gray-300 */
+  border-radius: 0.375rem; /* rounded */
+  margin-bottom: 1rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focus {
+  outline: none;
+  border-color: #4c51bf; /* índigo 600 */
+  box-shadow: 0 0 0 3px rgb(76 81 191 / 0.4);
+}
+
+/* Cards */
+.card {
+  background-color: #f7fafc; /* gray-50 */
+  border: 1px solid #e2e8f0; /* gray-200 */
+  border-radius: 0.75rem; /* rounded-xl */
+  box-shadow: 0 1px 2px rgb(0 0 0 / 0.05);
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+/* Card content padding */
+.card-content {
+  padding: 1.5rem;
+}
+
+/* Títulos sección */
+h2.section-title {
+  font-size: 1.875rem; /* text-3xl */
+  font-weight: 700;
+  color: #4c51bf; /* índigo 600 */
+  margin-bottom: 3rem; /* mb-12 */
+  text-align: center;
+}
+
+/* Textos */
+.text-center {
+  text-align: center;
+}
+
+/* Grid para testimonios y fases */
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+/* Footer */
+footer {
+  border-top: 1px solid #e2e8f0; /* gray-200 */
+  padding: 1.5rem;
+  text-align: center;
+  font-size: 0.875rem;
+  color: #718096; /* gray-600 */
+  user-select: none;
+}
+
+/* Links footer */
+footer a {
+  margin-left: 1rem;
+  color: #718096;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+footer a:hover {
+  color: #4c51bf;
+}
+
+/* Contenedor especial de validación (test) */
+.validacion {
+  background-color: #4c51bf;
+  color: white;
+  text-align: center;
+  padding: 2.5rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 6px rgb(0 0 0 / 0.1);
+  user-select: none;
+  margin-top: 2rem;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.testimonials-section {
+  max-width: 1200px;
+  margin: 6rem auto 4rem auto;
+  padding: 0 1rem;
+  text-align: center;
+}
+
+.testimonials-section h2 {
+  font-size: 2.25rem; /* 36px */
+  font-weight: 700;
+  color: #4f46e5; /* un índigo fuerte */
+  margin-bottom: 3rem;
+}
+
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.testimonial-card {
+  background-color: #f9fafb; /* gris muy claro */
+  border: 1px solid #e5e7eb; /* borde suave gris */
+  border-radius: 1rem; /* bordes redondeados */
+  box-shadow: 0 1px 3px rgb(0 0 0 / 0.1);
+  padding: 1.5rem 1.75rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 180px;
+}
+
+.testimonial-card .quote {
+  font-style: italic;
+  color: #374151; /* gris oscuro */
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+  flex-grow: 1;
+}
+
+.testimonial-card .author {
+  font-weight: 600;
+  color: #1f2937; /* casi negro */
+  text-align: right;
+  font-size: 0.9rem;
+}
+
+
+
+
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #ffffff;
+  border-bottom: 1px solid #e5e7eb; /* borde gris claro */
+  box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+  z-index: 1000;
+  padding: 1rem 1.5rem;
+  font-family: 'Inter', sans-serif;
+}
+
+.navbar-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: flex-end; /* todos a la derecha */
+  align-items: center;
+  gap: 1.5rem; /* espacio entre enlaces */
+}
+
+.navbar-logo {
+  position: absolute; /* para que el logo quede en la izquierda */
+  left: 1.5rem;
+  font-weight: 700;
+  font-size: 1.25rem; /* 20px */
+  color: #4f46e5; /* índigo 600 */
+  user-select: none;
+}
+
+.navbar-links a {
+  color: #4b5563; /* gris oscuro */
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  font-size: 1rem;
+  cursor: pointer;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+}
+
+.navbar-links a:hover {
+  color: #4f46e5; /* índigo 600 */
+}
+
+.navbar-links a.active {
+  color: #4f46e5;
+  font-weight: 600;
+  text-decoration: underline;
+  background-color: #e0e7ff; /* fondo lila claro */
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .navbar-container {
+    justify-content: center;
+  }
+  .navbar-logo {
+    position: static;
+    margin-bottom: 0.5rem;
+  }
+  .navbar-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+}
+.navbar-inner{
+    display: flex;
+    justify-content: space-between;
+}
+
+.webSection{
+    margin-top: 6rem;
+}
+
+.timeline-wrapper {
+  background-image: url("/images/espacio.webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 3rem 1rem;
+}
+
+/***********************************************************************/
+/*estilos de FAQS*/
+/***********************************************************************/
+.faqs-wrapper {
+  margin: 2rem auto;       /* centra horizontalmente y da espacio arriba y abajo */
+  background-color: #f0f4ff; /* un azul muy suave para que destaque */
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgb(0 0 0 / 0.1);
+  font-family: 'Inter', sans-serif;
+}
+
+.accordion-container {
+  width: 100%;
+  margin: 0 auto;
+  padding: 2rem;
+  background-color: #0f172a;
+  border-radius: 12px;
+  color: #fff;
+  font-family: 'Segoe UI', sans-serif;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+.accordion-title {
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.accordion-item {
+  border: 1px solid #334155;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 1rem;
+  background-color: #1e293b;
+}
+
+.accordion-trigger {
+  width: 100%;
+  background: none;
+  border: none;
+  padding: 1rem 1.25rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #f8fafc;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.accordion-trigger:hover {
+  background-color: #334155;
+}
+
+.accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease, padding 0.3s ease;
+  background-color: #1e293b;
+  padding: 0 1.25rem;
+}
+
+.accordion-content.open {
+  max-height: 500px; /* suficiente para contenido largo */
+  padding: 1rem 1.25rem;
+}
+
+.arrow {
+  font-size: 1.2rem;
+  transition: transform 0.3s ease;
+}
