@@ -1,17 +1,22 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-
+import { useInView } from 'react-intersection-observer';
 
 export default function Hero() {
+  const { ref, inView } = useInView({
+    triggerOnce: false, // Se repite cada vez que entra en pantalla
+    threshold: 0.4,
+  });
+
   return (
     <section className="hero">
       <div className="hero-inner">
         {/* Columna izquierda: texto */}
-        <div className="hero-text">
+        <div className="hero-text" ref={ref}>
           <motion.h1
             className="hero-title"
             initial={{ opacity: 0, x: -30 }}
-            animate={{ opacity: 1, x: 0 }}
+            animate={inView ? { opacity: 1, x: 0 } : { opacity: 0, x: -30 }}
             transition={{ duration: 1 }}
           >
             Bienvenido a <span className="highlight">Visionarios</span>
@@ -20,8 +25,8 @@ export default function Hero() {
           <motion.p
             className="hero-subtitle"
             initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 1, delay: 0.3 }}
+            animate={inView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
+            transition={{ duration: 1, delay: 0.2 }}
           >
             La plataforma educativa que transforma la curiosidad en aprendizaje.
           </motion.p>
@@ -29,8 +34,8 @@ export default function Hero() {
           <motion.button
             className="hero-button"
             initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.6 }}
+            animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
+            transition={{ duration: 0.5, delay: 0.4 }}
           >
             Empezar ahora
           </motion.button>
@@ -40,11 +45,11 @@ export default function Hero() {
         <motion.div
           className="hero-image"
           initial={{ opacity: 0, x: 30 }}
-          animate={{ opacity: 1, x: 0 }}
+           animate={inView ? { opacity: 1, x: 0 } : { opacity: 0, x: 30 }}
           transition={{ duration: 1, delay: 0.4 }}
         >
           <img
-            src="./images/undraw_family_6gj8.svg" // ✅ Asegúrate de tener esta imagen en /public
+            src="./images/undraw_family_6gj8.svg"
             alt="Ilustración educativa"
           />
         </motion.div>

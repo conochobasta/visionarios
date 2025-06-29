@@ -27,10 +27,10 @@ const renderer = ({ days, hours, minutes, seconds, completed }) => {
 
 const ElegantCountdown = ({ targetDate }) => {
   const [mounted, setMounted] = useState(false);
-  const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.3 });
+  const { ref, inView } = useInView({ triggerOnce: false, threshold: 0.3 }); // ← repetible si haces scroll
 
   useEffect(() => {
-    setMounted(true);
+    setMounted(true); // Asegura que solo se renderiza en cliente (evita hydration error)
   }, []);
 
   if (!mounted) return null;
@@ -39,7 +39,7 @@ const ElegantCountdown = ({ targetDate }) => {
     <motion.div
       ref={ref}
       initial={{ opacity: 0, y: 20 }}
-      animate={inView ? { opacity: 1, y: 0 } : {}}
+      animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
       transition={{ duration: 1 }}
     >
       <Countdown date={new Date(targetDate)} renderer={renderer} />

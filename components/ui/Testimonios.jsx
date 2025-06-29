@@ -33,15 +33,31 @@ export default function Testimonios() {
   );
 }
 
-function TestimonialCard({ testimonial, delay }) {
-  const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.2 });
+function TestimonialCard({ testimonial, delay, direction = -40 }) {
+  const { ref, inView } = useInView({
+    triggerOnce: false,
+    threshold: 0.2,
+  });
+
+  const variants = {
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: { duration: 0.8, delay }, // solo aplica delay al entrar
+    },
+    hidden: {
+      opacity: 0,
+      x: direction,
+      transition: { duration: 0.4, delay: 0 }, // sin delay al salir
+    },
+  };
 
   return (
     <motion.div
       ref={ref}
-      initial={{ opacity: 0, x: -40 }}
-      animate={inView ? { opacity: 1, x: 0 } : {}}
-      transition={{ duration: 0.8, delay }}
+      variants={variants}
+      initial="hidden"
+      animate={inView ? "visible" : "hidden"}
     >
       <Card className="testimonial-card bg-white/5 border border-white/10 backdrop-blur p-6 text-white rounded-xl shadow-xl min-h-[200px]">
         <CardContent>
@@ -52,4 +68,3 @@ function TestimonialCard({ testimonial, delay }) {
     </motion.div>
   );
 }
-

@@ -1,5 +1,6 @@
 import { useState } from "react";
-//comentario de prueba de push
+import { motion, AnimatePresence } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 
 export default function FAQS() {
   const [openIndex, setOpenIndex] = useState(null);
@@ -24,25 +25,45 @@ export default function FAQS() {
     },
   ];
 
+  const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.2 });
+
   return (
-    <div className="accordion-container">
-      <h2 className="accordion-title">Preguntas Frecuentes</h2>
+    <motion.div
+      ref={ref}
+      className="accordion-container max-w-3xl mx-auto px-4 py-16"
+      initial={{ opacity: 0, y: 30 }}
+      animate={inView ? { opacity: 1, y: 0 } : {}}
+      transition={{ duration: 0.8 }}
+    >
+      <h2 className="accordion-title text-3xl font-bold text-center text-white mb-10">
+        Preguntas Frecuentes
+      </h2>
       {faqs.map((faq, index) => (
-        <div className="accordion-item" key={index}>
+        <div className="accordion-item border-b border-white/20 py-4" key={index}>
           <button
-            className={`accordion-trigger ${openIndex === index ? "open" : ""}`}
+            className={`accordion-trigger flex justify-between items-center w-full text-left text-lg font-medium text-white transition-colors`}
             onClick={() => toggle(index)}
           >
             <span>{faq.question}</span>
-            <span className="arrow">{openIndex === index ? "▲" : "▼"}</span>
+            <span className="arrow text-sm">{openIndex === index ? "▲" : "▼"}</span>
           </button>
-          <div
-            className={`accordion-content ${openIndex === index ? "open" : ""}`}
-          >
-            <p>{faq.answer}</p>
-          </div>
+
+          <AnimatePresence initial={false}>
+            {openIndex === index && (
+              <motion.div
+                key="content"
+                initial={{ opacity: 0, height: 0 }}
+                animate={{ opacity: 1, height: "auto" }}
+                exit={{ opacity: 0, height: 0 }}
+                transition={{ duration: 0.4, ease: "easeInOut" }}
+                className="overflow-hidden text-white/80 text-base pt-2"
+              >
+                <p>{faq.answer}</p>
+              </motion.div>
+            )}
+          </AnimatePresence>
         </div>
       ))}
-    </div>
+    </motion.div>
   );
 }
