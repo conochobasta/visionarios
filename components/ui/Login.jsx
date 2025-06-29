@@ -1,15 +1,44 @@
-// components/Login.jsx
-import { Button } from "@/components/ui/button";
+import React from 'react';
+import { Dialog, DialogTitle, DialogContent, TextField, DialogActions, Button } from '@mui/material';
 
-export default function Login() {
+export default function LoginPopup({ open, onClose }) {
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // Aquí iría la lógica de login
+    alert('Login enviado');
+    onClose();
+  };
+
   return (
-    <section id="login" className="form-section">
-      <h2>Iniciar Sesión</h2>
-      <form className="form">
-        <input type="email" placeholder="Correo electrónico" />
-        <input type="password" placeholder="Contraseña" />
-        <Button className="btn-secondary btn-form btn-dark">Entrar</Button>
+    <Dialog open={open} onClose={onClose}>
+      <DialogTitle>Inicio de Sesión</DialogTitle>
+      <form onSubmit={handleSubmit}>
+        <DialogContent dividers>
+          <TextField
+            autoFocus
+            margin="dense"
+            label="Correo electrónico"
+            type="email"
+            fullWidth
+            required
+            variant="standard"
+          />
+          <TextField
+            margin="dense"
+            label="Contraseña"
+            type="password"
+            fullWidth
+            required
+            variant="standard"
+          />
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={onClose}>Cancelar</Button>
+          <Button type="submit" variant="contained" color="primary">
+            Entrar
+          </Button>
+        </DialogActions>
       </form>
-    </section>
+    </Dialog>
   );
 }

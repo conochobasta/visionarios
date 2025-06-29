@@ -1,16 +1,52 @@
-// components/Registro.jsx
-import { Button } from "@/components/ui/button";
+import React from 'react';
+import { Dialog, DialogTitle, DialogContent, TextField, DialogActions, Button } from '@mui/material';
 
-export default function Registro() {
+export default function RegisterPopup({ open, onClose }) {
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // Lógica de registro aquí
+    alert('Registro enviado');
+    onClose();
+  };
+
   return (
-    <section id="register" className="form-section">
-      <h2>Regístrate y Accede a la Demo</h2>
-      <form className="form">
-        <input type="text" placeholder="Nombre completo" />
-        <input type="email" placeholder="Correo electrónico" />
-        <input type="password" placeholder="Contraseña" />
-        <Button className="btn-primary  btn-form">Pagar y Acceder</Button>
+    <Dialog open={open} onClose={onClose}>
+      <DialogTitle>Registro</DialogTitle>
+      <form onSubmit={handleSubmit}>
+        <DialogContent dividers>
+          <TextField
+            autoFocus
+            margin="dense"
+            label="Nombre completo"
+            type="text"
+            fullWidth
+            required
+            variant="standard"
+          />
+          <TextField
+            margin="dense"
+            label="Correo electrónico"
+            type="email"
+            fullWidth
+            required
+            variant="standard"
+          />
+          <TextField
+            margin="dense"
+            label="Contraseña"
+            type="password"
+            fullWidth
+            required
+            variant="standard"
+          />
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={onClose}>Cancelar</Button>
+          <Button type="submit" variant="contained" color="secondary">
+            Crear cuenta
+          </Button>
+        </DialogActions>
       </form>
-    </section>
+    </Dialog>
   );
 }
