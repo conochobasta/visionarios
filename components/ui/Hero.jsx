@@ -28,7 +28,9 @@ export default function Hero() {
             animate={inView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
             transition={{ duration: 1, delay: 0.2 }}
           >
-            La plataforma educativa que transforma la curiosidad en aprendizaje.
+            Accede a nuestra demo exclusiva y participa activamente en su desarrollo.
+            <br />
+            Plazas limitadas para familias visionarias comprometidas con la libertad educativa.
           </motion.p>
 
           <motion.button
@@ -37,7 +39,7 @@ export default function Hero() {
             animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
             transition={{ duration: 0.5, delay: 0.4 }}
           >
-            Empezar ahora
+            Conviértete en fundador de Visionarios.
           </motion.button>
         </div>
 

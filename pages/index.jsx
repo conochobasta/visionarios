@@ -8,6 +8,7 @@ import Hero from '@/components/ui/Hero';
 import QuienesSomos from '@/components/ui/QuienesSomos';
 import FAQS from '@/components/ui/FAQS.jsx';
 import CountDownTimer from '@/components/ui/countdownTimer.jsx';
+import BeneficiosExclusivos from '@/components/ui/beneficiosExclusivos.jsx';
 import VerticalTimeLine from "@/components/ui/VerticalTimeLine";
 import { VerticalTimeline, VerticalTimelineElement }  from 'react-vertical-timeline-component';
 import 'react-vertical-timeline-component/style.min.css';
@@ -61,8 +62,9 @@ export default function VisionariosLanding() {
     <main className="main-content">
 
       {/* QuienesSomos */}
-      <section id="QuienesSomos" className="form-section webSection">
-        <QuienesSomos />
+      <section id="QuienesSomos" className=" webSection">
+       {/* <QuienesSomos />*/}
+        <BeneficiosExclusivos /> 
       </section>
 
       {/* Contenedor Únete */}
