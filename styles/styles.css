@@ -1,14 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap');
+
+
+
 /* Reset básico y fuente */
 *  {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
-    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
 }
 
 body {
-  background-color: #fff;
+  background-color: #1F2444;
   color: #4c51bf; /* índigo 600 */
   min-height: 100vh;
   line-height: 1.5;
@@ -23,30 +28,9 @@ body {
   padding-right: 1.5rem;
 }
 
-/* Logo en navbar */
-nav .logo {
-  font-weight: 700;
-  font-size: 1.25rem; /* text-xl */
-  color: #4c51bf; /* índigo 600 */
-  user-select: none;
-}
-
-/* Enlaces en navbar */
-nav .nav-links a {
-  color: #718096; /* gray-600 */
-  margin-left: 1rem; /* espacio entre links */
-  font-weight: 500;
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-nav .nav-links a:hover {
-  color: #4c51bf; /* índigo 600 */
-}
 
 /* Espaciado para main (compensa navbar fijo) */
 main {
-
   margin: 0 auto;
 }
 
@@ -233,21 +217,21 @@ footer a:hover {
   font-size: 0.9rem;
 }
 
-
-
-
-
+/****************************************************************/
+/*navbar*/
+/****************************************************************/
 .navbar {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  background-color: #ffffff;
-  border-bottom: 1px solid #e5e7eb; /* borde gris claro */
+  background-color: #1F2444;
   box-shadow: 0 1px 2px rgba(0,0,0,0.05);
   z-index: 1000;
   padding: 1rem 1.5rem;
   font-family: 'Inter', sans-serif;
+  padding-top: 30px;
+  padding-left: 30px;
 }
 
 .navbar-container {
@@ -314,6 +298,33 @@ footer a:hover {
     margin-top: 6rem;
 }
 
+/* Logo en navbar */
+nav .logo {
+  font-weight: 700;
+  font-size: 1.25rem; /* text-xl */
+  color: #4c51bf; /* índigo 600 */
+  user-select: none;
+}
+
+/* Enlaces en navbar */
+nav .nav-links a {
+  color: #718096; /* gray-600 */
+  margin-left: 1rem; /* espacio entre links */
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+nav .nav-links a:hover {
+  color: #4c51bf; /* índigo 600 */
+}
+
+/****************************************************************/
+/*fin Navbar*/
+/****************************************************************/
+/***********************************************************************/
+/*estilos de timeline*/
+/***********************************************************************/
 .timeline-wrapper {
   background-image: url("/images/espacio.webp");
   background-size: cover;
@@ -321,6 +332,74 @@ footer a:hover {
   background-repeat: no-repeat;
   padding: 3rem 1rem;
 }
+
+.element-content {
+  transition: transform 0.3s ease;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+.hover-zoom:hover {
+  transform: scale(1.03);
+}
+
+.expanded {
+  transform: scale(1.05);
+}
+
+/* Fullscreen expanded content */
+.fullscreen-panel {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(20, 20, 20, 0.95);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  padding: 2rem;
+  box-sizing: border-box;
+}
+
+.panel-content {
+  max-width: 600px;
+  background: #111;
+  padding: 2rem;
+  border-radius: 12px;
+  position: relative;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+  text-align: center;
+}
+
+.close-button {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 1.5rem;
+  background: transparent;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.panel-date {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  opacity: 0.7;
+}
+
+/* Oculta el cuadro si es el final */
+.vertical-timeline-element.end-marker .vertical-timeline-element-content {
+  display: none;
+}
+
+/***********************************************************************/
+/*estilos de timeline FIN*/
+/***********************************************************************/
+
 
 /***********************************************************************/
 /*estilos de FAQS*/
@@ -406,42 +485,49 @@ footer a:hover {
 .countdown-container {
   display: flex;
   justify-content: center;
-  gap: 1.2rem;
   padding: 1.5rem;
-  background-color: #ffffff08;
-  backdrop-filter: blur(4px);
-
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400; /* Regular */
 }
 
 .time-box {
-  background-color: #0f0f0f;
-  border: 1px solid #444;
-  border-radius: 0.5rem;
   padding: 1.2rem 1rem;
   width: 100px;
   text-align: center;
-  box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.03);
   transition: transform 0.2s ease;
+  display: flex;
+  flex-direction: column; /* Apila label encima del número */
+  align-items: center;
+  justify-content: center;
 }
 
 .time-box:hover {
   transform: translateY(-2px);
 }
 
-.time-value {
-  font-size: 2.3rem;
-  color: #e0e0e0;
-  font-family: 'Courier New', Courier, monospace;
-  font-weight: bold;
-}
-
 .time-label {
   font-size: 0.8rem;
-  color: #999;
-  margin-top: 0.3rem;
+  color: #ffffff;
+  margin-bottom: 0.3rem; /* separa del número */
   letter-spacing: 1px;
   text-transform: uppercase;
 }
+
+.time-value {
+  font-size: 2.5rem;
+  color: #e0e0e0;
+  font-family: 'Poppins';
+  font-weight: bold;
+}
+
+.colon {
+  font-size: 2.5rem;
+  color: #e0e0e0;
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+}
+
 
 .countdown-ended {
   color: #ff5555;
@@ -464,7 +550,6 @@ footer a:hover {
 /****************************************************************/
 .hero {
   min-height: 100vh;
-  background: linear-gradient(135deg, #0f172a, #1e293b, #334155);
   color: white;
   display: flex;
   align-items: center;
@@ -473,47 +558,74 @@ footer a:hover {
 }
 
 .hero-inner {
-  max-width: 1200px;
+  max-width: 1600px;
   width: 100%;
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: 4rem;
 }
 
 .hero-text {
   flex: 1;
 }
 
+.title-label{
+  color: #7A86B6;
+  font-family: 'Space Grotesk';
+  font-size: 30px;
+  font-weight: 100;
+}
+
 .hero-title {
-  font-size: 3rem;
+  font-family: 'Montserrat';
+  font-size: 3.2rem;
   font-weight: 800;
   margin-bottom: 1rem;
   line-height: 1.2;
 }
 
 .highlight {
-  color: #60a5fa;
+  font-family: 'Montserrat';
+  font-weight: 800;
+  background: linear-gradient(90deg, #A382FF, #3D5AFE);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  /* Para compatibilidad con algunos navegadores */
+  background-clip: text;
 }
 
 .hero-subtitle {
-  font-size: 1.25rem;
+  font-family: 'Montserrat';
+  font-size: 1rem;
   color: #cbd5e1;
   margin-bottom: 2rem;
   max-width: 500px;
 }
 
 .hero-button {
+  font-family: 'Montserrat';
   padding: 0.75rem 2rem;
   font-size: 1rem;
   font-weight: 600;
-  background-color: #3b82f6;
-  border: none;
-  border-radius: 8px;
+  font-style: normal;
   color: white;
-  cursor: pointer;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
-  transition: background-color 0.3s ease, transform 0.2s ease;
+  margin-left: 50px;
+  box-sizing: border-box;
+
+  /* Auto layout */
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  gap: 10px;
+
+  background: rgba(255, 255, 255, 0.02);
+  box-shadow: inset 0px -2px 4px rgba(0, 0, 0, 0.2), inset 0px 2px 4px rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(5px);
+  /* Note: backdrop-filter has minimal browser support */
+  border-radius: 40px;
 }
 
 .hero-button:hover {
@@ -522,15 +634,35 @@ footer a:hover {
 }
 
 .hero-image {
-  flex: 1;
+  position: relative;
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
-.hero-image img {
-  max-width: 100%;
-  height: auto;
+.image-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 1024px; /* más grande */
+  max-height: 953px;
 }
+
+.hero-main-image {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.countdown-overlay {
+  position: absolute;
+  top: 32%;
+  left: 53%;
+  transform: translateX(-50%);
+  z-index: 2;
+  padding: 1rem 2rem;
+  text-align: center;
+}
+
 
 /* Responsivo */
 @media (max-width: 900px) {
@@ -595,21 +727,27 @@ footer a:hover {
 /*Beneficios exclusivos*/
 /**************************************************************/
 .beneficios-section {
-  background-color: #fefefe;
   padding: 80px 20px;
-  text-align: center;
 }
 
 .beneficios-container {
-  max-width: 800px;
+  max-width: 1500px;
   margin: 0 auto;
 }
 
 .beneficios-title {
+    font-family: 'Montserrat';
   font-size: 2.5rem;
-  color: #1a1a1a;
-  margin-bottom: 30px;
-  font-weight: 700;
+  font-weight: 800;
+  color: white;
+}
+
+.beneficios-subtitle{
+    font-family: 'Montserrat';
+  font-size: 1.2rem;
+  font-weight: 300;
+  color: #7A86B6;
+  margin-top: -10px;
 }
 
 .beneficios-list {
@@ -635,6 +773,58 @@ footer a:hover {
   font-weight: bold;
 }
 
+.beneficios-title,
+.beneficios-subtitle {
+  position: relative;
+  padding-left: 1.5rem; /* espacio para el rectángulo */
+}
+
+.beneficios-title::before,
+.beneficios-subtitle::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.2em;
+  width: 6px;
+  height: 1.2em;
+  background-color: #A382FF; /* o el color que quieras */
+  border-radius: 2px;
+}
+
+.beneficios-subcontainer{
+  display: flex;
+  justify-content: center;
+  gap: 8rem;
+  margin-top: 8rem;
+}
+
+
+.circle {
+  width: 121px;
+  height: 121px;
+  background-color: #293166;
+  border-radius: 50%;
+  border: #7B7B7B 1px solid;
+   display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.imageBeneficio {
+  max-width: 70%; /* ajusta según el tamaño que quieras */
+  max-height: 70%;
+  object-fit: contain;
+}
+
+
 /***************************************************************/
 /*beneficios exclusivos FIN*/
 /**************************************************************/
+
+.fraseDecisiones{
+    font-family: 'Space Grotesk';
+    font-size: 50px;
+    font-weight: 100;
+    text-align: center;
+    color: white;
+}

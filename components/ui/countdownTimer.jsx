@@ -5,8 +5,9 @@ import { useInView } from 'react-intersection-observer';
 
 const TimeBox = ({ label, value }) => (
   <div className="time-box">
-    <div className="time-value">{String(value).padStart(2, '0')}</div>
     <div className="time-label">{label}</div>
+    <div className="time-value">{String(value).padStart(2, '0')}</div>
+
   </div>
 );
 
@@ -18,8 +19,11 @@ const renderer = ({ days, hours, minutes, seconds, completed }) => {
   return (
     <div className="countdown-container">
       <TimeBox label="DÍAS" value={days} />
+      <div className="colon">:</div>
       <TimeBox label="HORAS" value={hours} />
+      <div className="colon">:</div>
       <TimeBox label="MINUTOS" value={minutes} />
+      <div className="colon">:</div>
       <TimeBox label="SEGUNDOS" value={seconds} />
     </div>
   );

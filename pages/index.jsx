@@ -1,13 +1,11 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import Fases from "@/components/ui/FasesSection";
 import Testimonios from "@/components/ui/Testimonios";
 import RegisterPopup from "@/components/ui/Registro";
 import LoginPopup from "@/components/ui/Login";
 import Hero from '@/components/ui/Hero';
 import QuienesSomos from '@/components/ui/QuienesSomos';
 import FAQS from '@/components/ui/FAQS.jsx';
-import CountDownTimer from '@/components/ui/countdownTimer.jsx';
 import BeneficiosExclusivos from '@/components/ui/beneficiosExclusivos.jsx';
 import VerticalTimeLine from "@/components/ui/VerticalTimeLine";
 import { VerticalTimeline, VerticalTimelineElement }  from 'react-vertical-timeline-component';
@@ -35,7 +33,7 @@ export default function VisionariosLanding() {
     <div className="app-container">
       <nav className="navbar">
         <div className="navbar-inner">
-          <span className="logo">Visionarios</span>
+          <img src="./images/logo.png" alt="Logo" className="logo" />
           <div className="nav-links">
             <a href="#about">Quiénes somos</a>
             <a href="#phases">Fases</a>
@@ -59,6 +57,11 @@ export default function VisionariosLanding() {
         <Hero />
       </section>
 
+      <section >
+        <p className="fraseDecisiones">“El futuro se construye con decisiones valientes”</p>
+      </section>
+
+
     <main className="main-content">
 
       {/* QuienesSomos */}
@@ -71,11 +74,6 @@ export default function VisionariosLanding() {
       <div id="join" className="join-container">
           <Button className="btn-dark btn-secondary btn-unete">Únete como Visionario</Button>
         </div>
-
-      {/* countdown */}
-        <section id="countdown" className="webSection">
-          <CountDownTimer targetDate="2025-07-01T23:59:59" />
-        </section>
 
       {/* Fases */}
         <section id="phases" className="timeline-wrapper webSection">

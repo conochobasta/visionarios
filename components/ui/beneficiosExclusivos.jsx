@@ -4,28 +4,16 @@ export default function Beneficios() {
   return (
     <section id="beneficios" className="beneficios-section">
       <div className="beneficios-container">
-        <h2 className="beneficios-title">Beneficios exclusivos de la preventa</h2>
-        <ul className="beneficios-list">
-          <li>
-            <strong>50% de descuento vitalicio</strong> — solo durante esta preventa.
-            Nunca volverás a pagar el precio completo.
-          </li>
-          <li>
-            <strong>Acceso prioritario</strong> a la demo de la app antes del lanzamiento oficial.
-          </li>
-          <li>
-            <strong>Participación activa</strong> en el desarrollo. Tu opinión moldeará la plataforma.
-          </li>
-          <li>
-            <strong>Entrada exclusiva</strong> a la comunidad privada de familias pioneras.
-          </li>
-          <li>
-            <strong>Deja un legado</strong> para tu hijo: una educación diseñada para la libertad y la vida real.
-          </li>
-        </ul>
-        <p className="beneficios-aviso">
-          ⚠️ Las plazas son limitadas y no volverán a ofrecerse con estas condiciones.
-        </p>
+        <h2 className="beneficios-title">BENEFICIOS PARA TI</h2>
+        <h5 className="beneficios-subtitle">todo lo que vas a obtener</h5>
+        <div className="beneficios-subcontainer">
+          <div class="circle"><img className="imageBeneficio" src="./images/discount.png" /></div>
+          <div class="circle"><img className="imageBeneficio" src="./images/clock.png" /></div>
+          <div class="circle"><img className="imageBeneficio" src="./images/speechBallon.png" /></div>
+          <div class="circle"><img className="imageBeneficio" src="./images/ticket.png" /></div>
+          <div class="circle"><img className="imageBeneficio" src="./images/leaf.png" /></div>
+        </div>
+       
       </div>
     </section>
   );
