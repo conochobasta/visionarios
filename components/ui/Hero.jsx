@@ -65,7 +65,7 @@ export default function Hero() {
         <div className="image-wrapper">
           {/* countdown sobre la imagen */}
           <div className="countdown-overlay">
-            <CountDownTimer targetDate="2025-07-01T23:59:59" />
+            <CountDownTimer targetDate="2026-07-01T23:59:59" />
           </div>
           <img
             src="./images/family.png"
