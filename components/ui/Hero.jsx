@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import CountDownTimer from '@/components/ui/countdownTimer.jsx';
+import CountDownTimer from '@/components/ui/CountdownTimer.jsx';
 
 export default function Hero() {
   const { ref, inView } = useInView({

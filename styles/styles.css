@@ -1173,6 +1173,106 @@ nav .nav-links a:hover {
 /*beneficios exclusivos FIN*/
 /**************************************************************/
 
+/***************************************************************/
+/*BottomBar*/
+/**************************************************************/
+
+.bottom-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #B8A269;
+  color: white;
+  padding: 1rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30rem;
+  box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.25);
+  z-index: 1000;
+}
+
+.bottom-bar-title{
+  font-family: 'Montserrat';
+  font-size: 1.3rem;
+}
+
+.bottom-bar-subtitle{
+  font-family: 'Space Grotesk';
+  color: #293166;
+  font-weight: 600;
+}
+
+.bottom-bar-text {
+  font-family: 'Montserrat';
+  font-weight: 400;
+  flex-grow: 1;
+  font-size: 1rem;
+  max-width: 800px;
+}
+
+.bottom-bar-button {
+  font-family: 'Montserrat';
+  font-weight: 600;
+  font-size: 1.05rem;
+  background-color: #1F2444;
+  color: white;
+  border: none;
+  padding: 1.2rem;
+  width: 22rem;
+  border-radius: 55px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+
+.bottom-bar-button:hover {
+  background-color: #293166;
+}
+.price-container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* Precio nuevo normal */
+.price-new {
+  color: white;
+  font-weight: bold;
+  font-size: 1.4rem;
+}
+
+.time-container {
+  display: flex;
+  align-items: center;
+  margin-top: 1rem;
+  align-items: flex-end;
+}
+.time-container p {
+  font-family: 'Montserrat';
+  font-weight: 600;
+  color: #293166;
+  font-size: 0.70rem;
+}
+.time-box{
+  padding: 0px;
+}
+
+.countdown-bottomBar *{
+ zoom: 0.9;
+ 
+}
+
+.countdown-container{
+  padding: 0px;
+  
+}
+
+/***************************************************************/
+/*BottomBar FIN*/
+/**************************************************************/
+
 .fraseDecisiones{
     font-family: 'Space Grotesk';
     font-size: 50px;

@@ -13,6 +13,7 @@ import { VerticalTimeline, VerticalTimelineElement }  from 'react-vertical-timel
 import 'react-vertical-timeline-component/style.min.css';
 import { motion } from 'framer-motion';
 import { useInView } from "react-intersection-observer";
+import BottomBar from '@/components/ui/BottomBar.jsx';
 
 
 
@@ -101,7 +102,7 @@ export default function VisionariosLanding() {
         </section>*/}
 
         
-
+        <BottomBar />
 
         <footer className="footer">
           <p>© 2025 Visionarios. Todos los derechos reservados.</p>
