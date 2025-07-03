@@ -1,30 +1,30 @@
-import { Card, CardContent } from "@/components/ui/card";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 
 const testimonials = [
   {
-    name: "Laura, mamá de Sofía",
+    name: "María Elena, mamá de Valentina (5 años)",
     quote:
-      "Visionarios ha cambiado por completo la forma en que mi hija se relaciona con el aprendizaje. ¡Está emocionada cada vez que entra a la plataforma!",
+      "He probado otras plataformas educativas, pero esta es diferente. Tiene corazón. No es solo contenido bonito, es una experiencia personalizada, emocionalmente inteligente y con una visión clara de futuro. Siento que mi hija está aprendiendo con sentido, y eso no tiene precio.",
   },
   {
-    name: "Carlos, papá de Tomás",
+    name: "Laura M., mamá de Sofía (6 años)",
     quote:
-      "La claridad del avance y la participación que nos permite como padres es algo que nunca había visto en otra herramienta educativa.",
+      "Nunca había visto a Sofía tan motivada por aprender. La plataforma no solo se adapta a su ritmo, ¡sino que también reconoce cómo se siente! Me emociona ver cómo empieza a expresar mejor sus ideas y emociones. Es como si alguien la estuviera guiando con cariño y precisión al mismo tiempo.",
   },
   {
-    name: "Ana, educadora preescolar",
+    name: "Javier y Lucía, papás de Tomás (4 años)",
     quote:
-      "Los niños no solo aprenden, sino que disfrutan del proceso. La integración emocional hace una gran diferencia.",
+      "Gracias a los informes semanales entendemos mucho mejor en qué áreas necesita apoyo y cómo ayudarlo desde casa. Nos sentimos realmente parte de su proceso educativo, no como espectadores, sino como mentores. Esta herramienta nos unió más como familia.",
   },
 ];
 
 export default function Testimonios() {
   return (
-    <section id="testimonials" className="testimonials-section py-20 px-4">
-      <h2 className="text-3xl font-bold text-center mb-12 text-white">Testimonios</h2>
-      <div className="testimonials-grid grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+    <section id="testimonials" className="testimonials-section">
+      <h2 className="testimonial-title">Testimonios</h2>
+      <h5 className="testimonial-subtitle">así vivimos el aprendizaje en casa</h5>
+      <div className="testimonials-grid">
         {testimonials.map((t, idx) => (
           <TestimonialCard key={idx} testimonial={t} delay={idx * 0.3} />
         ))}
@@ -43,14 +43,17 @@ function TestimonialCard({ testimonial, delay, direction = -40 }) {
     visible: {
       opacity: 1,
       x: 0,
-      transition: { duration: 0.8, delay }, // solo aplica delay al entrar
+      transition: { duration: 0.8, delay },
     },
     hidden: {
       opacity: 0,
       x: direction,
-      transition: { duration: 0.4, delay: 0 }, // sin delay al salir
+      transition: { duration: 0.4 },
     },
   };
+
+  // Número de estrellas
+  const starCount = 5;
 
   return (
     <motion.div
@@ -58,13 +61,27 @@ function TestimonialCard({ testimonial, delay, direction = -40 }) {
       variants={variants}
       initial="hidden"
       animate={inView ? "visible" : "hidden"}
+      whileHover={{ scale: 1.1, zIndex: 10, transition: { duration: 0.3 } }}
+      style={{ transformOrigin: "center center", position: "relative" }}
+      className="testimonial-card"
     >
-      <Card className="testimonial-card bg-white/5 border border-white/10 backdrop-blur p-6 text-white rounded-xl shadow-xl min-h-[200px]">
-        <CardContent>
-          <p className="quote italic mb-4">"{testimonial.quote}"</p>
-          <p className="author font-semibold text-sm text-right">- {testimonial.name}</p>
-        </CardContent>
-      </Card>
+      <div className="testimonial-card-content">
+        <div className="testimonial-stars">
+          {[...Array(starCount)].map((_, i) => (
+            <img
+              key={i}
+              src="/images/estrella.png"
+              alt="estrella"
+              className="star-icon"
+              loading="lazy"
+              width={24}
+              height={24}
+            />
+          ))}
+        </div>
+        <p className="testimonial-quote">"{testimonial.quote}"</p>
+        <p className="testimonial-author">- {testimonial.name}</p>
+      </div>
     </motion.div>
   );
 }

@@ -10,24 +10,39 @@ export default function FAQS() {
 
   const faqs = [
     {
-      question: "¿Qué es Estrategas del Futuro?",
+      question: "¿A qué edad está dirigida esta plataforma?",
       answer:
-        "Es una propuesta educativa premium diseñada para potenciar el pensamiento estratégico en la infancia.",
+        "Nuestra plataforma está diseñada para niños y niñas entre 4 y 10 años, con actividades adaptadas a cada etapa de desarrollo. La IA ajusta los contenidos según el ritmo, intereses y nivel de cada niño, sin importar la edad exacta.",
     },
     {
-      question: "¿Cuál es la edad recomendada?",
+      question: "¿Necesito conocimientos técnicos para usarla con mi hijo?",
       answer:
-        "Está dirigido a niños de 3 a 6 años, en su etapa más receptiva al aprendizaje.",
+        "Nuestra plataforma está diseñada para niños y niñas entre 4 y 10 años, con actividades adaptadas a cada etapa de desarrollo. La IA ajusta los contenidos según el ritmo, intereses y nivel de cada niño, sin importar la edad exacta.",
     },
     {
-      question: "¿Cuándo estará disponible?",
-      answer: "Durante el lanzamiento exclusivo de preventa en 2025.",
+      question: "¿Cómo protege la plataforma la información de mi hijo?",
+      answer: "Nuestra plataforma está diseñada para niños y niñas entre 4 y 10 años, con actividades adaptadas a cada etapa de desarrollo. La IA ajusta los contenidos según el ritmo, intereses y nivel de cada niño, sin importar la edad exacta.",
+    },
+    {
+      question: "¿Qué diferencia a esta plataforma de otras apps educativas?",
+      answer: "Nuestra plataforma está diseñada para niños y niñas entre 4 y 10 años, con actividades adaptadas a cada etapa de desarrollo. La IA ajusta los contenidos según el ritmo, intereses y nivel de cada niño, sin importar la edad exacta.",
+    },
+    {
+      question: "¿Puedo ver el progreso y participar como madre/padre?",
+      answer: "Nuestra plataforma está diseñada para niños y niñas entre 4 y 10 años, con actividades adaptadas a cada etapa de desarrollo. La IA ajusta los contenidos según el ritmo, intereses y nivel de cada niño, sin importar la edad exacta.",
     },
   ];
 
   const [ref, inView] = useInView({ triggerOnce: false, threshold: 0.2 });
 
   return (
+    <>
+     <h2 className="accordion-title">
+        Preguntas Frecuentes
+      </h2>
+      <h5 className="accordion-subtitle">
+        para resolver todas tus dudas
+      </h5>
     <motion.div
       ref={ref}
       className="accordion-container max-w-3xl mx-auto px-4 py-16"
@@ -35,9 +50,6 @@ export default function FAQS() {
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.8 }}
     >
-      <h2 className="accordion-title text-3xl font-bold text-center text-white mb-10">
-        Preguntas Frecuentes
-      </h2>
       {faqs.map((faq, index) => (
         <div className="accordion-item border-b border-white/20 py-4" key={index}>
           <button
@@ -65,5 +77,6 @@ export default function FAQS() {
         </div>
       ))}
     </motion.div>
+    </>
   );
 }

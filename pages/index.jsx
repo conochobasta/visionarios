@@ -1,5 +1,6 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import Navbar from '@/components/ui/navbar.jsx';
 import Testimonios from "@/components/ui/Testimonios";
 import RegisterPopup from "@/components/ui/Registro";
 import LoginPopup from "@/components/ui/Login";
@@ -11,6 +12,7 @@ import VerticalTimeLine from "@/components/ui/VerticalTimeLine";
 import { VerticalTimeline, VerticalTimelineElement }  from 'react-vertical-timeline-component';
 import 'react-vertical-timeline-component/style.min.css';
 import { motion } from 'framer-motion';
+import { useInView } from "react-intersection-observer";
 
 
 
@@ -29,22 +31,16 @@ export default function VisionariosLanding() {
   const [isLoginOpen, setIsLoginOpen] = useState(false);
   const [isRegisterOpen, setIsRegisterOpen] = useState(false);
 
+  const [ref, inView] = useInView({
+    triggerOnce: false, // Se reanima si vuelve a aparecer
+    threshold: 0.3,
+  });
+
   return (
     <div className="app-container">
-      <nav className="navbar">
-        <div className="navbar-inner">
-          <img src="./images/logo.png" alt="Logo" className="logo" />
-          <div className="nav-links">
-            <a href="#about">Quiénes somos</a>
-            <a href="#phases">Fases</a>
-            <a href="#faqs">FAQ</a>
-            <a href="#testimonials">Testimonios</a>
-            <a href="#join">Únete</a>
-            <a href="#register" onClick={() => setIsRegisterOpen(true)} className="register-link">Registro / Pago</a>
-            <a href="#login" onClick={() => setIsLoginOpen(true)}>Iniciar sesión</a>
-          </div>
-        </div>
-      </nav>
+      
+      {/* navbar */}
+      <Navbar />
 
       <div style={{ padding: 20 }}>
       {/* Popups */}
@@ -57,23 +53,27 @@ export default function VisionariosLanding() {
         <Hero />
       </section>
 
-      <section >
+      <motion.section
+      ref={ref}
+      initial={{ opacity: 0, y: 30 }}
+      animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+      >
         <p className="fraseDecisiones">“El futuro se construye con decisiones valientes”</p>
-      </section>
+      </motion.section>
 
 
     <main className="main-content">
 
-      {/* QuienesSomos */}
-      <section id="QuienesSomos" className=" webSection">
-       {/* <QuienesSomos />*/}
+      {/* BeneficiosExclusivos */}
+      <section id="BeneficiosExclusivos" className=" webSection">
         <BeneficiosExclusivos /> 
       </section>
 
-      {/* Contenedor Únete */}
-      <div id="join" className="join-container">
-          <Button className="btn-dark btn-secondary btn-unete">Únete como Visionario</Button>
-        </div>
+      {/* QuienesSomos */}
+      <section id="QuienesSomos" className=" webSection">
+        <QuienesSomos /> 
+      </section>
 
       {/* Fases */}
         <section id="phases" className="timeline-wrapper webSection">

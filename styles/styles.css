@@ -169,46 +169,65 @@ footer a:hover {
   font-weight: 600;
   font-size: 1rem;
 }
-
+/****************************************************************************/
+/*Testimonios*/
+/****************************************************************************/
 .testimonials-section {
-  max-width: 1200px;
+  max-width: 1600px;
   margin: 6rem auto 4rem auto;
   padding: 0 1rem;
-  text-align: center;
-}
-
-.testimonials-section h2 {
-  font-size: 2.25rem; /* 36px */
-  font-weight: 700;
-  color: #4f46e5; /* un índigo fuerte */
-  margin-bottom: 3rem;
+  text-align: right;
 }
 
 .testimonials-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;  /* Centra verticalmente todas */
+  gap: 2rem;
+  max-width: 1300px;
+  margin: 0 auto;
 }
 
 .testimonial-card {
-  background-color: #f9fafb; /* gris muy claro */
-  border: 1px solid #e5e7eb; /* borde suave gris */
-  border-radius: 1rem; /* bordes redondeados */
-  box-shadow: 0 1px 3px rgb(0 0 0 / 0.1);
+  flex-shrink: 0;
+  width: 350px;
+  height: 350px;
+  background: #293166;
+  border: 3px solid #7B7B7B;
+  box-shadow: 0px 8px 12.7px rgba(0, 0, 0, 0.25);
+  border-radius: 50px;
+  box-sizing: border-box;
   padding: 1.5rem 1.75rem;
+  color: #99A3CC;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  min-height: 180px;
+  cursor: pointer;
+  will-change: transform;
+  position: relative; /* para que el zIndex funcione */
+  transition: border-color 0.3s ease;
+  text-align: center;
+  font-family: 'Montserrat';
+  font-size: 0.90rem;
 }
 
-.testimonial-card .quote {
-  font-style: italic;
-  color: #374151; /* gris oscuro */
-  font-size: 1rem;
-  margin-bottom: 1.5rem;
-  flex-grow: 1;
+
+/* Efecto al hover: todas crecen */
+.testimonial-card:hover {
+  color: white;
+  transform: scale(1.1);
+  box-shadow: 0 0 60px 30px rgba(124, 77, 255, 0.4);
+  z-index: 10; /* para que se superponga si se solapan */
 }
+
+.testimonial-author{
+  text-align: right;
+  margin-top: 30px;
+  font-size: 16px;
+}
+
+
 
 .testimonial-card .author {
   font-weight: 600;
@@ -216,6 +235,59 @@ footer a:hover {
   text-align: right;
   font-size: 0.9rem;
 }
+.testimonial-title {
+  font-family: 'Montserrat';
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: white;
+}
+
+.testimonial-subtitle {
+  font-family: 'Montserrat';
+  font-size: 1.3rem;
+  font-weight: 300;
+  color: #7A86B6;
+  margin-top: -11px;
+  margin-bottom: 4rem;
+}
+
+.testimonial-title,
+.testimonial-subtitle {
+  position: relative;
+  padding-right: 1.5rem; /* espacio para el rectángulo a la derecha */
+}
+
+.testimonial-title::after,
+.testimonial-subtitle::after {
+  content: '';
+  position: absolute;
+  right: 0; /* posición a la derecha */
+  top: 0.2em;
+  width: 6px;
+  height: 1.2em;
+  background-color: #A382FF;
+  border-radius: 2px;
+}
+
+.testimonial-stars {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  margin-bottom: 2rem;
+}
+
+.star-icon {
+  transition: filter 0.3s ease;
+}
+
+/* Cambia la imagen de la estrella en hover */
+.testimonial-card:hover .testimonial-stars img {
+  content: url('/images/estrellaEncendida.png');
+}
+
+/****************************************************************/
+/*Testimonis Fin*/
+/****************************************************************/
 
 /****************************************************************/
 /*navbar*/
@@ -225,53 +297,17 @@ footer a:hover {
   top: 0;
   left: 0;
   width: 100%;
-  background-color: #1F2444;
+  background-color: rgba(31, 36, 68, 0.9);
   box-shadow: 0 1px 2px rgba(0,0,0,0.05);
   z-index: 1000;
   padding: 1rem 1.5rem;
   font-family: 'Inter', sans-serif;
   padding-top: 30px;
-  padding-left: 30px;
+  padding-left: 60px;
 }
 
-.navbar-container {
-  max-width: 1280px;
-  margin: 0 auto;
-  display: flex;
-  justify-content: flex-end; /* todos a la derecha */
-  align-items: center;
-  gap: 1.5rem; /* espacio entre enlaces */
-}
-
-.navbar-logo {
-  position: absolute; /* para que el logo quede en la izquierda */
-  left: 1.5rem;
-  font-weight: 700;
-  font-size: 1.25rem; /* 20px */
-  color: #4f46e5; /* índigo 600 */
-  user-select: none;
-}
-
-.navbar-links a {
-  color: #4b5563; /* gris oscuro */
-  font-weight: 500;
-  text-decoration: none;
-  transition: color 0.3s ease;
-  font-size: 1rem;
-  cursor: pointer;
-  padding: 0.25rem 0.5rem;
-  border-radius: 4px;
-}
-
-.navbar-links a:hover {
-  color: #4f46e5; /* índigo 600 */
-}
-
-.navbar-links a.active {
-  color: #4f46e5;
-  font-weight: 600;
-  text-decoration: underline;
-  background-color: #e0e7ff; /* fondo lila claro */
+.logo{
+  width: 15%;
 }
 
 /* Responsive */
@@ -294,18 +330,6 @@ footer a:hover {
     justify-content: space-between;
 }
 
-.webSection{
-    margin-top: 6rem;
-}
-
-/* Logo en navbar */
-nav .logo {
-  font-weight: 700;
-  font-size: 1.25rem; /* text-xl */
-  color: #4c51bf; /* índigo 600 */
-  user-select: none;
-}
-
 /* Enlaces en navbar */
 nav .nav-links a {
   color: #718096; /* gray-600 */
@@ -325,18 +349,61 @@ nav .nav-links a:hover {
 /***********************************************************************/
 /*estilos de timeline*/
 /***********************************************************************/
+
 .timeline-wrapper {
-  background-image: url("/images/espacio.webp");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  padding: 3rem 1rem;
 }
 
+.vertical-timeline {
+  padding: 0 !important;
+  padding-top: 10rem !important;
+}
+
+.phases-text {
+  color: white;
+  text-align: center;
+  margin-bottom: -3rem;
+}
+
+.phases-text h2 {
+  font-family: 'Montserrat';
+  font-size: 3.2rem;
+}
+
+.phases-text h5 {
+  font-family: 'Montserrat';
+  font-size: 1.3rem;
+  font-weight: 300;
+  color: #7A86B6;
+  margin-top: -11px;
+  margin-bottom: 4rem;
+}
+
+.vertical-timeline-element-icon.bounce-in {
+  background-color: #B8A269;
+}
+
+/* --- CONTENT STYLING --- */
+.custom-timeline-element .vertical-timeline-element-content {
+  background-color: #293166;
+  color: white;
+  border-radius: 20px;
+  padding: 30px 40px;
+  max-width: 480px;
+  position: relative;
+  transition: background-color 0.3s ease;
+}
+
+/* Zooms */
 .element-content {
   transition: transform 0.3s ease;
   padding: 10px;
   border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
 .hover-zoom:hover {
@@ -347,7 +414,109 @@ nav .nav-links a:hover {
   transform: scale(1.05);
 }
 
-/* Fullscreen expanded content */
+/* Layout de cada elemento del timeline */
+.content-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.content-wrapper.left-side .header-content {
+  display: flex;
+  flex-direction: row-reverse;
+  gap: 12px;
+  text-align: right;
+  align-items: center;
+}
+
+.content-wrapper.right-side .header-content {
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  text-align: left;
+  align-items: center;
+}
+
+.side-image {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  flex-shrink: 0;
+  border-radius: 8px;
+}
+
+.titles h3, .titles h4 {
+  margin: 0;
+  line-height: 1.2;
+}
+
+.text-paragraph p {
+  margin: 0;
+  text-align: left;
+  font-family: 'Montserrat';
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+
+/* Título y subtítulo */
+.vertical-timeline-element-title {
+  font-family: 'Montserrat';
+  font-size: 1.5rem;
+}
+
+.vertical-timeline-element-subtitle {
+  font-family: 'Montserrat';
+  font-size: 1.2rem;
+  font-weight: 300;
+  color: #7A86B6;
+  margin-top: -15px;
+  margin-bottom: 1rem;
+}
+
+/* Solo el activo muestra flecha estilizada */
+.vertical-timeline-element.active.content-arrow::after {
+  content: "";
+  position: absolute;
+  top: 30px;
+  right: -15px;
+  width: 12px;
+  height: 12px;
+  border: solid #B8A269;
+  border-width: 2px 2px 0 0;
+  transform: rotate(45deg);
+  pointer-events: none;
+}
+
+.vertical-timeline-element.active.right-side.content-arrow::after {
+  left: -15px;
+  right: auto;
+  transform: rotate(-135deg);
+}
+
+/* FECHAS */
+.custom-date {
+  position: relative;
+  font-style: italic;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.date-left {
+  left: 250px !important;
+  text-align: right !important;
+}
+
+.date-right {
+  right: 250px !important;
+  text-align: left !important;
+}
+
+/* FINAL DEL TIMELINE */
+.vertical-timeline-element.end-marker .vertical-timeline-element-content {
+  display: none;
+}
+
+/* PANEL EXPANDIDO */
 .fullscreen-panel {
   position: fixed;
   top: 0;
@@ -391,9 +560,88 @@ nav .nav-links a:hover {
   opacity: 0.7;
 }
 
-/* Oculta el cuadro si es el final */
-.vertical-timeline-element.end-marker .vertical-timeline-element-content {
-  display: none;
+/* FONDOS DECORATIVOS */
+.timeline-section {
+  position: relative;
+  margin: 0 auto;
+  clip-path: polygon(0 10%, 100% 0, 100% 90%, 0% 100%);
+  padding: 12rem 2rem;
+  overflow: hidden;
+}
+
+.timeline-bg-blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  opacity: 0.9;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.timeline-bg-blob.yellow {
+  width: 1000px;
+  height: 1200px;
+  background: #FFD700;
+  top: -150px;
+  left: -200px;
+}
+
+.timeline-bg-blob.purple {
+  width: 1200px;
+  height: 1100px;
+  background: #7C4DFF;
+  top: -300px;
+  right: -150px;
+}
+
+.timeline-bg-blob.orange {
+  width: 1400px;
+  height: 1100px;
+  background: #F57C00;
+  bottom: -200px;
+  right: 350px;
+}
+
+.timeline-bg-blob.yellow2 {
+  width: 600px;
+  height: 600px;
+  background: #FFD700;
+  bottom: 250px;
+  right: 0px;
+}
+
+.timeline-bg-blob.purple2 {
+  width: 400px;
+  height: 400px;
+  background: #7C4DFF;
+  bottom: 300px;
+  left: -50px;
+}
+/* Asegura que el texto esté alineado a la derecha si está en la izquierda del timeline */
+.content-wrapper.left-side .titles,
+.content-wrapper.left-side .text-paragraph {
+  text-align: left;
+}
+
+/* Corrige p alineado si es lado izquierdo */
+.content-wrapper.left-side .text-paragraph p {
+  text-align: left;
+}
+
+/* Asegura que títulos también estén a la derecha */
+.content-wrapper.left-side .titles h3,
+.content-wrapper.left-side .titles h4 {
+  text-align: left;
+}
+/* Para el lado derecho (índices impares), texto alineado a la derecha */
+.content-wrapper.right-side .titles,
+.content-wrapper.right-side .text-paragraph {
+  text-align: right;
+}
+
+.content-wrapper.right-side .titles h3,
+.content-wrapper.right-side .titles h4 {
+  text-align: right;
 }
 
 /***********************************************************************/
@@ -406,36 +654,59 @@ nav .nav-links a:hover {
 /***********************************************************************/
 .faqs-wrapper {
   margin: 2rem auto;       /* centra horizontalmente y da espacio arriba y abajo */
-  background-color: #f0f4ff; /* un azul muy suave para que destaque */
-  border-radius: 12px;
-  box-shadow: 0 8px 20px rgb(0 0 0 / 0.1);
-  font-family: 'Inter', sans-serif;
+  color: white;
+  font-family: 'Montserrat';
+  max-width: 1600px;
+  margin: 6rem auto 4rem auto;
+  padding: 0 1rem;
+  text-align: left;
 }
-
-.accordion-container {
-  width: 100%;
-  margin: 0 auto;
-  padding: 2rem;
-  background-color: #0f172a;
-  border-radius: 12px;
-  color: #fff;
-  font-family: 'Segoe UI', sans-serif;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+.accordion-container{
+  max-width: 1400px;
+   margin: 0 auto;
 }
 
 .accordion-title {
-  font-size: 1.8rem;
-  font-weight: bold;
-  margin-bottom: 1.5rem;
-  text-align: center;
+  font-family: 'Montserrat';
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: white;
+}
+
+.accordion-subtitle {
+    font-family: 'Montserrat';
+    font-size: 1.3rem;
+    font-weight: 300;
+    color: #7A86B6;
+    margin-top: -11px;
+    margin-bottom: 4rem;
+}
+
+.accordion-title,
+.accordion-subtitle {
+  position: relative;
+  padding-left: 1.5rem; /* espacio para el rectángulo a la derecha */
+}
+
+.accordion-title::before, 
+.accordion-subtitle::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.2em;
+    width: 6px;
+    height: 1.2em;
+    background-color: #A382FF;
+    border-radius: 2px;
 }
 
 .accordion-item {
-  border: 1px solid #334155;
-  border-radius: 8px;
+  font-family: 'Space Grotesk';
+  border: 1px solid #7B7B7B;
+  border-radius: 20px;
   overflow: hidden;
   margin-bottom: 1rem;
-  background-color: #1e293b;
+  background-color: #293166;
 }
 
 .accordion-trigger {
@@ -443,36 +714,30 @@ nav .nav-links a:hover {
   background: none;
   border: none;
   padding: 1rem 1.25rem;
-  font-size: 1rem;
-  font-weight: 600;
+  font-size: 1.005rem;
+  font-weight: 300;
   color: #f8fafc;
   display: flex;
   justify-content: space-between;
   align-items: center;
   cursor: pointer;
   transition: background 0.3s ease;
+   font-family: 'Space Grotesk';
 }
 
 .accordion-trigger:hover {
-  background-color: #334155;
-}
-
-.accordion-content {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.3s ease, padding 0.3s ease;
-  background-color: #1e293b;
-  padding: 0 1.25rem;
-}
-
-.accordion-content.open {
-  max-height: 500px; /* suficiente para contenido largo */
-  padding: 1rem 1.25rem;
+  background-color: #293166;
 }
 
 .arrow {
   font-size: 1.2rem;
   transition: transform 0.3s ease;
+}
+
+.accordion-item p{
+  padding: 2rem;
+  font-family: 'Montserrat';
+  font-size: 0.9rem;
 }
 /***********************************************************************/
 /*estilos de FAQS FIN*/
@@ -655,8 +920,8 @@ nav .nav-links a:hover {
 
 .countdown-overlay {
   position: absolute;
-  top: 32%;
-  left: 53%;
+  top: 27%;
+  left: 50%;
   transform: translateX(-50%);
   z-index: 2;
   padding: 1rem 2rem;
@@ -688,37 +953,131 @@ nav .nav-links a:hover {
 /*QUIENES SOMOS*/
 /**************************************************************/
 .about-section {
-  padding: 80px 0;
-  background-color: #fff;
+  padding: 4rem 2rem;
+  max-width: 1500px;
+  margin: 0 auto;
 }
 
 .about-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 24px;
   display: flex;
-  flex-direction: column;
-  gap: 48px;
+  justify-content: flex-end; /* Pone el texto a la derecha */
+
 }
 
 .about-text {
-  width: 100%;
+  max-width: 750px;
+  text-align: right; /* Alinea texto a la derecha */
+
 }
 
-.about-title {
+.quienesSomos-title {
+  font-family: 'Montserrat';
   font-size: 2.5rem;
   font-weight: 800;
-  color: #222;
-  margin-bottom: 24px;
-  line-height: 1.3;
+  color: white;
+}
+
+.quienesSomos-subtitle {
+  font-family: 'Montserrat';
+  font-size: 1.3rem;
+  font-weight: 300;
+  color: #7A86B6;
+  margin-top: -11px;
+  margin-bottom: 4rem;
+}
+
+.quienesSomos-title,
+.quienesSomos-subtitle {
+  position: relative;
+  padding-right: 1.5rem; /* espacio para el rectángulo a la derecha */
+}
+
+.quienesSomos-title::after,
+.quienesSomos-subtitle::after {
+  content: '';
+  position: absolute;
+  right: 0; /* posición a la derecha */
+  top: 0.2em;
+  width: 6px;
+  height: 1.2em;
+  background-color: #A382FF;
+  border-radius: 2px;
 }
 
 .about-paragraph {
-  font-size: 1.125rem;
-  color: #444;
-  line-height: 1.7;
-  margin-bottom: 20px;
+  font-family: 'Montserrat';
+  font-size: 1.05rem;
+  color: white;
+  margin-bottom: 1rem;
+  line-height: 1.6;
 }
+
+.linea-blanca {
+  width: 100%;
+  height: 4px;           
+  background-color: white;
+  margin-top: -7.1rem;
+}
+
+.quienes-somos-tags-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end; /* Alinea todo el grupo a la derecha */
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.tag-group {
+  display: flex;
+  gap: 1rem;
+}
+
+.tag-item {
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+  color: white;
+  font-family: 'Space Grotesk';;
+  font-weight: 500;
+  background: rgba(184, 162, 105, 0.5);
+  box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 30px;
+  transition: transform 0.3s ease;
+}
+
+
+.about-image-container {
+  position: relative;
+  flex-shrink: 0;
+}
+
+.image-glow {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80rem;
+  height: 35rem;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(163, 130, 255, 0.5) 0%, /* tono acorde con tu paleta */
+    rgba(163, 130, 255, 0) 70%
+  );
+  filter: blur(45px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.about-img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  position: relative;
+  z-index: 1;
+}
+
+
+
+
 /***************************************************************/
 /*QUIENES SOMOS FIN*/
 /**************************************************************/
@@ -736,41 +1095,18 @@ nav .nav-links a:hover {
 }
 
 .beneficios-title {
-    font-family: 'Montserrat';
+  font-family: 'Montserrat';
   font-size: 2.5rem;
   font-weight: 800;
   color: white;
 }
 
 .beneficios-subtitle{
-    font-family: 'Montserrat';
-  font-size: 1.2rem;
+  font-family: 'Montserrat';
+  font-size: 1.3rem;
   font-weight: 300;
   color: #7A86B6;
   margin-top: -10px;
-}
-
-.beneficios-list {
-  list-style: none;
-  padding: 0;
-  margin-bottom: 40px;
-  text-align: left;
-}
-
-.beneficios-list li {
-  font-size: 1.1rem;
-  margin-bottom: 20px;
-  color: #333;
-}
-
-.beneficios-list li strong {
-  color: #b10000;
-}
-
-.beneficios-aviso {
-  font-size: 1rem;
-  color: #b10000;
-  font-weight: bold;
 }
 
 .beneficios-title,
@@ -796,6 +1132,22 @@ nav .nav-links a:hover {
   justify-content: center;
   gap: 8rem;
   margin-top: 8rem;
+}
+
+
+.beneficio-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 141px; /* igual que el círculo */
+  text-align: center;
+}
+
+.beneficio-label {
+  margin-top: 0.8rem;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.05rem;
+  color: #ffffff;
 }
 
 
