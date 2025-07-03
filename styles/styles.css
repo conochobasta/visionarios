@@ -17,6 +17,7 @@ body {
   color: #4c51bf; /* índigo 600 */
   min-height: 100vh;
   line-height: 1.5;
+  overflow-x: hidden;
 }
 
 /* Contenedor general */
@@ -757,7 +758,7 @@ nav .nav-links a:hover {
 
 .time-box {
   padding: 1.2rem 1rem;
-  width: 100px;
+  width: 6rem;
   text-align: center;
   transition: transform 0.2s ease;
   display: flex;
@@ -805,6 +806,9 @@ nav .nav-links a:hover {
   padding: 1rem;
   background-color: #1a1a1a;
 }
+
+
+
 /****************************************************************/
 /*Countdown FIN*/
 /****************************************************************/
@@ -830,14 +834,14 @@ nav .nav-links a:hover {
   align-items: center;
 }
 
-.hero-text {
+.hero-content {
   flex: 1;
 }
 
 .title-label{
   color: #7A86B6;
   font-family: 'Space Grotesk';
-  font-size: 30px;
+  font-size: 1.4rem;
   font-weight: 100;
 }
 
@@ -860,7 +864,7 @@ nav .nav-links a:hover {
   background-clip: text;
 }
 
-.hero-subtitle {
+.hero-text {
   font-family: 'Montserrat';
   font-size: 1rem;
   color: #cbd5e1;
@@ -907,13 +911,13 @@ nav .nav-links a:hover {
 
 .image-wrapper {
   position: relative;
-  width: 100%;
+  width: 99%;
   max-width: 1024px; /* más grande */
   max-height: 953px;
 }
 
 .hero-main-image {
-  width: 100%;
+  width: 50rem;
   height: auto;
   display: block;
 }
@@ -931,13 +935,16 @@ nav .nav-links a:hover {
 
 /* Responsivo */
 @media (max-width: 900px) {
+  .hero{
+    padding: 0px;;
+  }
+
   .hero-inner {
     flex-direction: column;
     text-align: center;
-    gap: 2rem;
   }
 
-  .hero-text {
+  .hero-content {
     order: 1;
   }
 
@@ -946,6 +953,94 @@ nav .nav-links a:hover {
   }
 }
 
+/* Móvil (<=768px) */
+@media (max-width: 768px) {
+  .hero-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .hero-content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    box-sizing: border-box;
+    max-width: 40rem;
+
+  }
+
+  .hero-button {
+    order: 99;
+    margin: 0px;
+  }
+
+  .hero-image {
+    order: 0; /* Imagen primero */
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .hero-text {
+    order: 1; /* Texto después */
+    text-align: center; /* Texto centrado */
+    max-width: 100%;
+    margin-top: 20px; /* Espacio entre imagen y texto */
+    padding: 0 3rem; /* Pequeño padding lateral para mejor lectura */
+  }
+
+  .hero-main-image {
+    width: 100%;
+    height: auto;
+  }
+
+   .time-box{
+    width: 5rem;
+  }
+
+  .colom{
+    font-size: 1.5rem;
+  }
+  
+  .time-value {
+    font-size: 1.5rem;
+  }
+  .time-label {
+    font-size: 0.75rem;
+  }
+
+}
+
+@media (max-width: 680px) {
+  .time-box {
+    width: 4.5rem;
+  }
+
+  .colom,
+  .time-value {
+    font-size: 1.3rem;
+  }
+
+  .time-label {
+    font-size: 0.7rem;
+  }
+}
+
+@media (max-width: 599px) {
+  .time-box {
+    width: 3.5rem;
+  }
+
+  .colom,
+  .time-value {
+    font-size: 1.2rem;
+  }
+
+  .time-label {
+    font-size: 0.6rem;
+  }
+}
+/* ==== Estilos para móvil FIN ==== */
 /****************************************************************/
 /*HERO FIN*/
 /****************************************************************/
@@ -1042,8 +1137,13 @@ nav .nav-links a:hover {
   box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 30px;
   transition: transform 0.3s ease;
+  z-index: 9999;
+  cursor: default;
 }
 
+.tag-item:hover {
+  transform: scale(1.05) !important;
+}
 
 .about-image-container {
   position: relative;
@@ -1075,6 +1175,40 @@ nav .nav-links a:hover {
   z-index: 1;
 }
 
+/***Quienes somos movil****/
+@media (max-width: 768px) {
+  .about-container {
+    flex-direction: column;
+    text-align: left;
+    padding: 1.5rem;
+  }
+
+  .about-text {
+    order: 1;
+    text-align: right;
+  }
+   .about-text p{
+    text-align: left;
+  }
+
+  .about-image-container {
+    order: 2;
+    margin-top: 2rem;
+  }
+
+  .quienes-somos-tags-container {
+    order: 3;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    margin-top: -2rem;
+  }
+
+  .linea-blanca {
+    display: none;
+  }
+}
+/***Quienes somos movil fin****/
 
 
 
@@ -1279,4 +1413,10 @@ nav .nav-links a:hover {
     font-weight: 100;
     text-align: center;
     color: white;
+}
+@media (max-width: 768px) {
+.fraseDecisiones{
+  margin-top: 8rem;
+  font-size: 2rem;
+}
 }

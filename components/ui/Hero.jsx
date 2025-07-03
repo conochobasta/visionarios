@@ -6,7 +6,7 @@ import CountDownTimer from '@/components/ui/CountdownTimer.jsx';
 export default function Hero() {
   const { ref, inView } = useInView({
     triggerOnce: false, // Se repite cada vez que entra en pantalla
-    threshold: 0.4,
+    threshold: 0,
   });
 
   return (
@@ -14,7 +14,7 @@ export default function Hero() {
             {/* countdown */}
       <div className="hero-inner">
         {/* Columna izquierda: texto */}
-        <div className="hero-text" ref={ref}>
+        <div className="hero-content" ref={ref}>
            <motion.h1
             className="title-label"
             initial={{ opacity: 0, x: -30 }}
@@ -34,7 +34,7 @@ export default function Hero() {
           </motion.h1>
 
           <motion.p
-            className="hero-subtitle"
+            className="hero-text"
             initial={{ opacity: 0, x: -20 }}
             animate={inView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
             transition={{ duration: 1, delay: 0.2 }}
