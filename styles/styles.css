@@ -11,7 +11,9 @@
   padding: 0;
 
 }
-
+html{
+    overflow-x: hidden;
+}
 body {
   background-color: #1F2444;
   color: #4c51bf; /* índigo 600 */
@@ -284,6 +286,13 @@ footer a:hover {
 /* Cambia la imagen de la estrella en hover */
 .testimonial-card:hover .testimonial-stars img {
   content: url('/images/estrellaEncendida.png');
+}
+
+/***testimonial movil****/
+@media (max-width: 768px) {
+.testimonial-title{
+  font-size: 2rem;
+}
 }
 
 /****************************************************************/
@@ -739,6 +748,48 @@ nav .nav-links a:hover {
   padding: 2rem;
   font-family: 'Montserrat';
   font-size: 0.9rem;
+}
+
+
+/***beneficios exclusivos movil****/
+@media (max-width: 768px) {
+.accordion-title{
+  font-size: 2rem;
+}
+@media (max-width: 768px) {
+  .beneficios-subcontainer {
+    display: grid !important;
+    grid-template-columns: repeat(5, 1fr) !important;
+    grid-template-rows: repeat(2, auto) !important;
+    gap: 0px !important;
+    justify-items: center !important;
+  }
+
+  .beneficio-item:nth-child(1) {
+    grid-column: 1 !important;
+    grid-row: 1 !important;
+  }
+  .beneficio-item:nth-child(2) {
+    grid-column: 3 !important;
+    grid-row: 1 !important;
+  }
+  .beneficio-item:nth-child(3) {
+    grid-column: 5 !important;
+    grid-row: 1 !important;
+  }
+
+  .beneficio-item:nth-child(4) {
+    grid-column: 2 !important;
+    grid-row: 2 !important;
+  }
+  .beneficio-item:nth-child(5) {
+    grid-column: 4 !important;
+    grid-row: 2 !important;
+  }
+}
+
+
+  
 }
 /***********************************************************************/
 /*estilos de FAQS FIN*/
@@ -1207,6 +1258,12 @@ nav .nav-links a:hover {
   .linea-blanca {
     display: none;
   }
+  /***Quienes somos movil****/
+
+  .quienesSomos-title{
+    font-size: 2rem;
+  }
+
 }
 /***Quienes somos movil fin****/
 
@@ -1286,8 +1343,8 @@ nav .nav-links a:hover {
 
 
 .circle {
-  width: 121px;
-  height: 121px;
+  width: 8rem;
+  height: 8rem;
   background-color: #293166;
   border-radius: 50%;
   border: #7B7B7B 1px solid;
@@ -1300,6 +1357,13 @@ nav .nav-links a:hover {
   max-width: 70%; /* ajusta según el tamaño que quieras */
   max-height: 70%;
   object-fit: contain;
+}
+
+/***beneficios exclusivos movil****/
+@media (max-width: 768px) {
+.beneficios-title{
+  font-size: 2rem;
+}
 }
 
 

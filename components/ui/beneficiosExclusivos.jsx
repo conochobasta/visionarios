@@ -13,7 +13,7 @@ const beneficioData = [
 export default function Beneficios() {
   const [ref, inView] = useInView({
     triggerOnce: false,
-    threshold: 0.2,
+    threshold: 0.1,
   });
 
   return (
