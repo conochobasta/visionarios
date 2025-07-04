@@ -1,11 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   VerticalTimeline,
   VerticalTimelineElement,
 } from "react-vertical-timeline-component";
 import "react-vertical-timeline-component/style.min.css";
-import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
+import ReactDOM from "react-dom";
+import { motion, AnimatePresence } from "framer-motion";
 
 const events = [
   {
@@ -55,21 +56,35 @@ const events = [
   },
 ];
 
+const titleVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0 },
+};
+
+const subtitleVariants = {
+  hidden: { opacity: 0, y: 10 },
+  visible: { opacity: 1, y: 0 },
+};
+
 const VerticalTimelineComponent = () => {
   const [expandedIndex, setExpandedIndex] = useState(null);
   const [ref, inView] = useInView({ triggerOnce: false, threshold: 0.2 });
 
-/* INDICE PARA CAMBIAR TIMELINE */
-  const activeIndex = 0; 
+  const [mounted, setMounted] = useState(false);
+
+    useEffect(() => {
+      setMounted(true);
+    }, []);
+  /* INDICE PARA CAMBIAR TIMELINE */
+  const activeIndex = 0;
+
 
   const handleExpand = (index) => {
     setExpandedIndex(index);
-    document.body.style.overflow = "hidden";
   };
 
   const handleCollapse = () => {
     setExpandedIndex(null);
-    document.body.style.overflow = "auto";
   };
 
   return (
@@ -103,28 +118,30 @@ const VerticalTimelineComponent = () => {
                 className={`vertical-timeline-element custom-timeline-element ${
                   event.isEnd ? "end-marker" : ""
                 } ${isActive ? "active" : ""}`}
-                /*date={event.date}
-                dateClassName={`custom-date ${index % 2 === 0 ? "date-left" : "date-right"}`}*/
                 contentStyle={{
-                  cursor: "pointer",
-                  color: "white",
+                cursor: isExpanded ? "default" : "pointer",
+                color: "white",
+                backgroundColor: "#293166",
+                borderRadius: 12,
+                opacity: isExpanded ? 0 : 1,
+                pointerEvents: isExpanded ? "none" : "auto",
+                transition: "opacity 0.3s ease",
                 }}
-               contentArrowStyle={{
+                contentArrowStyle={{
                   backgroundImage: isActive
                     ? `url('/images/arrow.png')`
-                    : 'none',
-                  backgroundRepeat: 'no-repeat',
-                  backgroundPosition: 'center',
-                  backgroundSize: 'contain',
-                  border: 'none',
-                  width: '30px',
-                  height: '30px',
-                  transform: index % 2 === 0 ? 'rotate(0deg)' : 'rotate(180deg)', // rota si es lado derecho o izquierdo
-                  marginRight: index % 2 !== 0 && isActive ? '25px' : '0',  // flecha a la izquierda, separada hacia la izquierda
-                  marginLeft: index % 2 === 0 && isActive ? '25px' : '0',
+                    : "none",
+                  backgroundRepeat: "no-repeat",
+                  backgroundPosition: "center",
+                  backgroundSize: "contain",
+                  border: "none",
+                  width: "30px",
+                  height: "30px",
+                  transform:
+                    index % 2 === 0 ? "rotate(0deg)" : "rotate(180deg)",
+                  marginRight: index % 2 !== 0 && isActive ? "25px" : "0",
+                  marginLeft: index % 2 === 0 && isActive ? "25px" : "0",
                 }}
-
-
                 iconStyle={{
                   background: isActive ? "#B8A269" : "#293166",
                   color: "#fff",
@@ -144,52 +161,142 @@ const VerticalTimelineComponent = () => {
                     {index + 1}
                   </div>
                 }
-
               >
                 {!event.isEnd && (
                   <div
-                    className={`element-content ${isExpanded ? "expanded" : "hover-zoom"}`}
+                    className={`element-content ${
+                      isExpanded ? "expanded" : "hover-zoom"
+                    }`}
                     onClick={() => handleExpand(index)}
                   >
                     <div
-                      className={`content-wrapper ${index % 2 === 0 ? "left-side" : "right-side"}`}
+                      className={`content-wrapper ${
+                        index % 2 === 0 ? "left-side" : "right-side"
+                      }`}
                     >
-                      {/* Encabezado con imagen, título y subtítulo */}
-                      <div className="header-content">
-                        <img src={event.image} alt="icon" className="side-image" />
-                        <div className="titles">
-                          <h3 className="vertical-timeline-element-title">{event.title}</h3>
+                      {/* Aquí animamos título y subtítulo con motion */}
+                      <div className="header-content" style={{ display: "flex", alignItems: "center" }}>
+                        <img
+                          src={event.image}
+                          alt="icon"
+                          className="side-image"
+                        />
+                        <div className="titles" style={{ marginLeft: 12 }}>
+                          <motion.h3
+                            className="vertical-timeline-element-title"
+                            initial="hidden"
+                            animate="visible"
+                            variants={titleVariants}
+                            transition={{ duration: 0.5, ease: "easeOut" }}
+                          >
+                            {event.title}
+                          </motion.h3>
                           {event.subtitle && (
-                            <h4 className="vertical-timeline-element-subtitle">{event.subtitle}</h4>
+                            <motion.h4
+                              className="vertical-timeline-element-subtitle"
+                              initial="hidden"
+                              animate="visible"
+                              variants={subtitleVariants}
+                              transition={{ duration: 0.5, ease: "easeOut", delay: 0.15 }}
+                            >
+                              {event.subtitle}
+                            </motion.h4>
                           )}
                         </div>
                       </div>
 
-                      {/* Texto separado */}
                       <div className="text-paragraph">
                         <p>{event.description}</p>
                       </div>
                     </div>
                   </div>
                 )}
-
               </VerticalTimelineElement>
             );
           })}
         </VerticalTimeline>
 
-        {expandedIndex !== null && (
-          <div className="fullscreen-panel">
-            <div className="panel-content">
-              <button className="close-button" onClick={handleCollapse}>
-                ✕
-              </button>
-              <h2>{events[expandedIndex].title}</h2>
-              {events[expandedIndex].subtitle && <h4>{events[expandedIndex].subtitle}</h4>}
-              <p>{events[expandedIndex].description}</p>
-              <p className="panel-date">{events[expandedIndex].date}</p>
-            </div>
-          </div>
+        {mounted  && typeof window !== "undefined" &&
+        ReactDOM.createPortal(
+          <AnimatePresence>
+            {expandedIndex !== null && (
+              <motion.div
+                className="overlay"
+                onClick={handleCollapse}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                style={{
+                  position: "fixed",
+                  top: 0,
+                  left: 0,
+                  width: "100vw",
+                  height: "100vh",
+                  backgroundColor: "rgba(0,0,0,0.6)",
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  zIndex: 1000,
+                  padding: "2rem",
+                }}
+              >
+                <motion.div
+                  layoutId={`card-${expandedIndex}`}
+                  onClick={(e) => e.stopPropagation()}
+                  style={{
+                    backgroundColor: "#293166",
+                    borderRadius: 20,
+                    padding: "3rem",
+                    maxWidth: "800px",
+                    maxHeight: "90vh",
+                    overflowY: "auto",
+                    color: "white",
+                    position: "relative",
+                    boxShadow: "0 10px 30px rgba(0,0,0,0.5)",
+                  }}
+                >
+                  <button
+                    onClick={handleCollapse}
+                    style={{
+                      position: "absolute",
+                      top: 15,
+                      right: 15,
+                      fontSize: 30,
+                      background: "transparent",
+                      border: "none",
+                      color: "white",
+                      cursor: "pointer",
+                    }}
+                    aria-label="Cerrar"
+                  >
+                    ×
+                  </button>
+                  <img
+                    src={events[expandedIndex].image}
+                    alt={events[expandedIndex].title}
+                    style={{
+                      width: 100,
+                      height: 100,
+                      objectFit: "contain",
+                      marginBottom: "1rem",
+                      borderRadius: 10,
+                    }}
+                  />
+                  <h2 style={{ marginTop: 0 }}>{events[expandedIndex].title}</h2>
+                  {events[expandedIndex].subtitle && (
+                    <h4 style={{ fontWeight: "normal", opacity: 0.8 }}>
+                      {events[expandedIndex].subtitle}
+                    </h4>
+                  )}
+                  <p>{events[expandedIndex].description}</p>
+                  <p style={{ fontStyle: "italic", marginTop: "1rem" }}>
+                    {events[expandedIndex].date}
+                  </p>
+                </motion.div>
+              </motion.div>
+            )}
+          </AnimatePresence>,
+          document.getElementById("portal-root")
         )}
       </section>
     </>

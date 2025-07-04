@@ -37,6 +37,7 @@ export default function VisionariosLanding() {
 
   return (
     <div className="app-container">
+      <div id="portal-root"></div>
       <Navbar />
       <div style={{ padding: 20 }}>
         <LoginPopup open={isLoginOpen} onClose={() => setIsLoginOpen(false)} />
