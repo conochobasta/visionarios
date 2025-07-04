@@ -244,6 +244,7 @@ const VerticalTimelineComponent = () => {
                   alignItems: "center",
                   zIndex: 1000,
                   padding: "2rem",
+                  fontFamily: "Montserrat",
                 }}
               >
                 <motion.div
@@ -252,7 +253,7 @@ const VerticalTimelineComponent = () => {
                   style={{
                     backgroundColor: "#293166",
                     borderRadius: 20,
-                    padding: "3rem",
+                    padding: "5rem",
                     maxWidth: "800px",
                     maxHeight: "90vh",
                     overflowY: "auto",
@@ -289,12 +290,12 @@ const VerticalTimelineComponent = () => {
                   />*/}
                   <h2 style={{ marginTop: 0 }}>{events[expandedIndex].title}</h2>
                   {events[expandedIndex].subtitle && (
-                    <h4 style={{ fontWeight: "normal", opacity: 0.8 }}>
+                    <h4 style={{color: "#99A3CC", fontWeight: "300", marginBottom: "1.5rem"}}>
                       {events[expandedIndex].subtitle}
                     </h4>
                   )}
-                  <p>{events[expandedIndex].description}</p>
-                  <p style={{ fontStyle: "italic", marginTop: "1rem" }}>
+                  <p >{events[expandedIndex].description}</p>
+                  <p style={{marginTop: "1rem", color: "#99A3CC", fontWeight: "300" }}>
                     {events[expandedIndex].date}
                   </p>
                 </motion.div>

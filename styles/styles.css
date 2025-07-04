@@ -797,6 +797,10 @@ nav .nav-links a:hover {
     grid-column: 4 !important;
     grid-row: 2 !important;
   }
+
+   .accordion-title {
+        font-size: 2rem;
+    }
 }
 
 
