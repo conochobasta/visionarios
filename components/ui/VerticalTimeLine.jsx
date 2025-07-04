@@ -169,6 +169,11 @@ const VerticalTimelineComponent = () => {
                     }`}
                     onClick={() => handleExpand(index)}
                   >
+                    <motion.div
+                    layoutId={`card-${index}`}  // Esto debe coincidir con el del portal
+                    className={`content-wrapper ${index % 2 === 0 ? "left-side" : "right-side"}`}
+                    style={{ position: "relative" }}
+                    >
                     <div
                       className={`content-wrapper ${
                         index % 2 === 0 ? "left-side" : "right-side"
@@ -209,6 +214,7 @@ const VerticalTimelineComponent = () => {
                         <p>{event.description}</p>
                       </div>
                     </div>
+                    </motion.div>
                   </div>
                 )}
               </VerticalTimelineElement>
@@ -252,7 +258,6 @@ const VerticalTimelineComponent = () => {
                     overflowY: "auto",
                     color: "white",
                     position: "relative",
-                    boxShadow: "0 10px 30px rgba(0,0,0,0.5)",
                   }}
                 >
                   <button
@@ -271,7 +276,7 @@ const VerticalTimelineComponent = () => {
                   >
                     ×
                   </button>
-                  <img
+                 {/*} <img
                     src={events[expandedIndex].image}
                     alt={events[expandedIndex].title}
                     style={{
@@ -281,7 +286,7 @@ const VerticalTimelineComponent = () => {
                       marginBottom: "1rem",
                       borderRadius: 10,
                     }}
-                  />
+                  />*/}
                   <h2 style={{ marginTop: 0 }}>{events[expandedIndex].title}</h2>
                   {events[expandedIndex].subtitle && (
                     <h4 style={{ fontWeight: "normal", opacity: 0.8 }}>
