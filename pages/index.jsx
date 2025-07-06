@@ -69,18 +69,40 @@ export default function VisionariosLanding() {
 
         {/* Placeholder para que el contenido no quede tapado por BottomBar */}
         
-        {/*PONER BOTTOMBAR */}
+        <div style={{ height: barHeight }}></div>
+
+        {/* BottomBar con ref */}
+        <BottomBar ref={bottomBarRef} />
 
         
-        <footer className="footer">
-          <p>© 2025 Visionarios. Todos los derechos reservados.</p>
-          <div className="footer-links">
-            <a href="#">Aviso legal</a>
-            <a href="#">Política de privacidad</a>
-            <a href="#">Instagram</a>
-            <a href="#">LinkedIn</a>
+        <footer className="custom-footer">
+          <div className="footer-top">
+            <img src="/images/meecube.png" alt="MeeCube logo" className="footer-logo" />
+
+            <div className="footer-contact">
+              <h4>CONTÁCTANOS</h4>
+              <a href="mailto:meecube.ai@gmail.com">meecube.ai@gmail.com</a>
+            </div>
+
+            <div className="footer-legal">
+              <h4>LEGAL</h4>
+              <a href="#">Aviso legal</a>
+              <a href="#">Política de privacidad</a>
+            </div>
+          </div>
+
+          <hr className="footer-separator" />
+
+          <div className="footer-bottom">
+            <p>2025 Copyright Abast Global SL</p>
+            <div className="footer-socials">
+              <a href="#"><img src="/images/linkedin.png" alt="LinkedIn" /></a>
+              <a href="#"><img src="/images/X.png" alt="X (Twitter)" /></a>
+              <a href="#"><img src="/images/instagram.png" alt="Instagram" /></a>
+            </div>
           </div>
         </footer>
+
       </main>
     </div>
   );

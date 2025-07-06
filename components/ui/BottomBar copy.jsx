@@ -37,9 +37,11 @@ const BottomBar = forwardRef((props, ref) => {
 
       const isTouchingFooter = scrollBottom >= footerTop;
 
-      if (isTouchingFooter && isFixed) {
+      if (isTouchingFooter) {
+        // Se ha alcanzado el footer → ponlo relative
         setIsFixed(false);
-      } else if (!isTouchingFooter && !isFixed) {
+      } else if (window.scrollY + window.innerHeight < barInitialTop + bar.offsetHeight) {
+        // Subes y bar está por debajo de su posición original → vuelve a fixed
         setIsFixed(true);
       }
     };
@@ -52,7 +54,7 @@ const BottomBar = forwardRef((props, ref) => {
       window.removeEventListener("scroll", handleScroll);
       window.removeEventListener("resize", handleScroll);
     };
-  }, [footerTop, barInitialTop, isFixed]);
+  }, [footerTop, barInitialTop]);
 
   return (
     <div
