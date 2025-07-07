@@ -46,14 +46,14 @@ export default function VisionariosLanding() {
 
       <section id="hero"><Hero /></section>
 
-      <motion.section
+      {/*<motion.section
             ref={ref}
             initial={{ opacity: 0, y: 30 }}
             animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
             >
               <p className="fraseDecisiones">“El futuro se construye con decisiones valientes”</p>
-            </motion.section>
+            </motion.section>*/}
 
       <main className="main-content">
 
