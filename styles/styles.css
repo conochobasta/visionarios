@@ -1236,7 +1236,6 @@ nav .nav-links a:hover {
   background: transparent;
   border: none;
   cursor: pointer;
-  font-size: 1.5rem; /* tamaño de las flechas */
   color: white;
   margin: 0 40px;
   user-select: none;
