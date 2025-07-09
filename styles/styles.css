@@ -154,7 +154,7 @@ h2.section-title {
 /*Testimonios*/
 /****************************************************************************/
 .testimonials-section {
-  max-width: 1600px;
+  max-width: 1400px;
   margin: 6rem auto 4rem auto;
   padding: 0 1rem;
   text-align: right;
@@ -166,20 +166,20 @@ h2.section-title {
   justify-content: center;
   align-items: center;  /* Centra verticalmente todas */
   gap: 2rem;
-  max-width: 1300px;
+  max-width: 1000px;
   margin: 0 auto;
 }
 
 .testimonial-card {
   flex-shrink: 0;
-  width: 350px;
-  height: 350px;
+  width: 100%;
+  height: 21rem;
   background: #293166;
   border: 3px solid #7B7B7B;
   box-shadow: 0px 8px 12.7px rgba(0, 0, 0, 0.25);
   border-radius: 50px;
   box-sizing: border-box;
-  padding: 1.5rem 1.75rem;
+  padding: 2rem 3.75rem;
   color: #99A3CC;
   display: flex;
   flex-direction: column;
@@ -190,7 +190,7 @@ h2.section-title {
   transition: border-color 0.3s ease;
   text-align: center;
   font-family: 'Montserrat';
-  font-size: 0.90rem;
+  font-size: 1rem;
 }
 
 
@@ -205,7 +205,7 @@ h2.section-title {
 .testimonial-author{
   text-align: right;
   margin-top: 30px;
-  font-size: 16px;
+  font-size: 1rem;
 }
 
 
@@ -254,7 +254,7 @@ h2.section-title {
   display: flex;
   justify-content: center;
   gap: 6px;
-  margin-bottom: 2rem;
+  margin-bottom: 2.4rem;
 }
 
 .star-icon {
@@ -267,9 +267,61 @@ h2.section-title {
 }
 
 /***testimonial movil****/
+@media (max-width: 1137px) {
+.testimonials-grid{
+  margin: 0 1rem;
+}
+
+@media (max-width: 991px) {
+.testimonial-card{
+  font-size: 0.90rem !important;
+  height: 22rem;
+}
+.testimonial-author{
+    font-size: 0.85rem !important;
+}
+}
+
+@media (max-width: 797px) {
+.testimonial-card{
+  height: 24rem;
+}
+}
+
+}
 @media (max-width: 768px) {
 .testimonial-title{
   font-size: 2rem;
+}
+.testimonial-card{
+  height: 26rem;
+}
+}
+@media (max-width: 695px) {
+.testimonial-card{
+  height: 28rem;
+}
+}
+@media (max-width: 645px) {
+.testimonial-card{
+  height: 30rem;
+  font-size: 0.85rem !important;
+}
+}
+@media (max-width: 619px) {
+.testimonial-card{
+  height: 32rem;
+}
+}
+@media (max-width: 540px) {
+.testimonial-card{
+  height: 36rem;
+}
+}
+
+@media (max-width: 525px) {
+.testimonial-card{
+  height: 38rem;
 }
 }
 
@@ -781,7 +833,7 @@ nav .nav-links a:hover {
   text-align: left;
 }
 .accordion-container{
-  max-width: 1400px;
+  max-width: 1000px;
    margin: 0 auto;
 }
 
@@ -1069,7 +1121,7 @@ nav .nav-links a:hover {
   font-size: 1rem;
   color: #cbd5e1;
   margin-bottom: 2rem;
-  max-width: 500px;
+  max-width: 600px;
 }
 
 .hero-button {
@@ -1277,6 +1329,7 @@ nav .nav-links a:hover {
     margin-top: 9rem;
     max-width: 100%;
     margin-bottom: 7rem;
+    text-align: center;
   }
   .countdown-overlay{
     max-width: 100%;
@@ -1576,7 +1629,7 @@ nav .nav-links a:hover {
 }
 }
 
-@media (max-width: 1416px) {
+@media (max-width: 1430px) {
   .about-paragraph{
     font-size: 0.95rem;
   }
@@ -1587,6 +1640,13 @@ nav .nav-links a:hover {
     margin-top: -6.1rem;
   }
 }
+
+@media (max-width: 1417px) {
+  .about-paragraph{
+    font-size: 0.90rem;
+  }
+}
+
 
 @media (max-width: 1278px) {
   .about-paragraph{

@@ -10,26 +10,30 @@ export default function FAQS() {
 
   const faqs = [
     {
+      question: "¿Qué diferencia a esta plataforma de otras apps educativas?",
+      answer: "Esta plataforma aprovecha la inteligencia artificial para ajustarse de forma dinámica al ritmo, intereses y necesidades únicas de cada niño, creando así una experiencia educativa totalmente personalizada.Esto asegura que el aprendizaje sea significativo, efectivo y adaptado a cada etapa del desarrollo infantil.",
+    },
+    {
       question: "¿A qué edad está dirigida esta plataforma?",
       answer:
-        "Nuestra plataforma está diseñada para niños y niñas entre 4 y 10 años, con actividades adaptadas a cada etapa de desarrollo. La IA ajusta los contenidos según el ritmo, intereses y nivel de cada niño, sin importar la edad exacta.",
+        "Nuestra plataforma está diseñada para niños entre 3 y 6 años, con actividades adaptadas a cada etapa de desarrollo. La IA ajusta los contenidos según el ritmo, intereses y nivel de cada niño, sin importar la edad exacta.",
     },
     {
-      question: "¿Necesito conocimientos técnicos para usarla con mi hijo?",
+      question: "¿Necesitaré conocimientos técnicos para usarla con mi hijo?",
       answer:
-        "Nuestra plataforma está diseñada para niños y niñas entre 4 y 10 años, con actividades adaptadas a cada etapa de desarrollo. La IA ajusta los contenidos según el ritmo, intereses y nivel de cada niño, sin importar la edad exacta.",
+        "No necesitarás ningún conocimiento técnico para usar la aplicación con tu hijo. Estará diseñada para que cualquier familia pueda aprovecharla fácilmente, con una interfaz intuitiva y acompañamiento constante. Solo tendrás que enfocarte en apoyar el aprendizaje de tu hijo, ¡el resto lo hará la app!",
     },
     {
-      question: "¿Cómo protege la plataforma la información de mi hijo?",
-      answer: "Nuestra plataforma está diseñada para niños y niñas entre 4 y 10 años, con actividades adaptadas a cada etapa de desarrollo. La IA ajusta los contenidos según el ritmo, intereses y nivel de cada niño, sin importar la edad exacta.",
+      question: "¿Se podra usar la app para varios niños o solo uno?",
+      answer: "No hay problema en usar la aplicación con varios niños siempre que cada uno tenga su propio usuario individual. La app está diseñada para adaptarse de forma personalizada a las necesidades y ritmo de aprendizaje de cada niño, por lo que compartir un mismo usuario entre varios niños haría que pierda efectividad. Para garantizar una experiencia óptima, cada niño debe contar con su perfil propio dentro de la plataforma.",
     },
     {
-      question: "¿Qué diferencia a esta plataforma de otras apps educativas?",
-      answer: "Nuestra plataforma está diseñada para niños y niñas entre 4 y 10 años, con actividades adaptadas a cada etapa de desarrollo. La IA ajusta los contenidos según el ritmo, intereses y nivel de cada niño, sin importar la edad exacta.",
+      question: "podre ver el progreso y participar como madre/padre?",
+      answer: "Sí, podrás ver el progreso de tu hijo fácilmente a través de una app complementaria diseñada para padres. Allí recibirás datos reales y claros sobre qué actividades realiza, cómo avanza y en qué áreas necesita más apoyo. Así podrás acompañar su aprendizaje de forma informada y estar siempre al tanto de su desarrollo.",
     },
     {
-      question: "¿Puedo ver el progreso y participar como madre/padre?",
-      answer: "Nuestra plataforma está diseñada para niños y niñas entre 4 y 10 años, con actividades adaptadas a cada etapa de desarrollo. La IA ajusta los contenidos según el ritmo, intereses y nivel de cada niño, sin importar la edad exacta.",
+      question: "¿Habrá actualizaciones y mejoras constantes?",
+      answer: "Sí, la plataforma estará en constante evolución con actualizaciones y mejoras regulares para ofrecer siempre la mejor experiencia educativa. Además, las familias fundadoras podrán participar activamente dando feedback para que la aplicación se adapte cada vez más a las necesidades reales de los niños y sus familias.",
     },
   ];
 

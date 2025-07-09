@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import CountDownTimer from '@/components/ui/CountdownTimer.jsx';
@@ -6,23 +6,23 @@ import CountDownTimer from '@/components/ui/CountdownTimer.jsx';
 const slides = [
   {
     image: './images/carousel/carousel-1.jpg',
-    phrase: 'Imagina una educación sin límites, diseñada por y para visionarios.',
+    phrase: '"La educación que elijas hoy definirá su mañana."',
   },
   {
     image: './images/carousel/carousel-2.jpg',
-    phrase: 'La tecnología más avanzada al servicio del desarrollo humano.',
+    phrase: '"¿Vas a confiar el futuro de tu hijo a un modelo del siglo pasado?"',
   },
   {
     image: './images/carousel/carousel-3.jpg',
-    phrase: 'El futuro de tus hijos comienza con tu decisión hoy.',
+    phrase: '"Si quieres resultados diferentes, deja de educar igual que todos."',
   },
   {
     image: './images/carousel/carousel-4.jpg',
-    phrase: 'El futuro de tus hijos comienza con tu decisión hoy.',
+    phrase: '"Elegir diferente no es arriesgado. Apostar por lo mismo, sí."',
   },
   {
     image: './images/carousel/carousel-5.jpg',
-    phrase: 'El futuro de tus hijos comienza con tu decisión hoy.',
+    phrase: '"Si lo que viene es nuevo, ¿por qué educarlo como antes?"',
   },
 ];
 
@@ -31,20 +31,31 @@ const SLIDE_DURATION = 7000; // 7 segundos
 export default function Hero() {
   const { ref, inView } = useInView({ triggerOnce: false, threshold: 0 });
   const [currentIndex, setCurrentIndex] = useState(0);
+  const intervalRef = useRef(null);
 
-  useEffect(() => {
-    const interval = setInterval(() => {
+
+ const startSlideTimer = () => {
+    if (intervalRef.current) {
+      clearInterval(intervalRef.current);
+    }
+    intervalRef.current = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % slides.length);
     }, SLIDE_DURATION);
-    return () => clearInterval(interval);
+  };
+
+  useEffect(() => {
+    startSlideTimer();
+    return () => clearInterval(intervalRef.current);
   }, []);
 
   const prevSlide = () => {
     setCurrentIndex((prev) => (prev - 1 + slides.length) % slides.length);
+    startSlideTimer();
   };
 
   const nextSlide = () => {
     setCurrentIndex((prev) => (prev + 1) % slides.length);
+    startSlideTimer();
   };
 
   return (
@@ -113,7 +124,7 @@ export default function Hero() {
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 1 }}
           >
-            APP EDUCATIVA REVOLUCIONARIA
+            APP EDUCATIVA QUE CAMBIARÁ EL FUTURO
           </motion.h1>
 
           <motion.h1
@@ -122,7 +133,7 @@ export default function Hero() {
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 1, delay: 0.1 }}
           >
-            Bienvenido a <span className="highlight">VISIONARIOS</span>
+            <span className="highlight">VISIONARIOS</span> te necesita ahora
           </motion.h1>
 
           <motion.p
@@ -131,10 +142,11 @@ export default function Hero() {
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 1, delay: 0.2 }}
           >
-            Apoya la creación de la educación más libre, personalizada y avanzada con IA.
-            Accede a nuestra demo exclusiva y participa activamente en su desarrollo.
+            Impulsa hoy la creación de la educación más libre, personalizada y avanzada con IA. 
+            La educación del futuro no se construye sola: accede ahora a esta experiencia exclusiva y participa activamente en su desarrollo. 
+            El momento es ahora.
             <br /><br />
-            Plazas limitadas para familias visionarias comprometidas con la libertad educativa
+            <b style={{color: "white"}}>Cupos extremadamente limitados. ¿Vas a quedarte fuera?</b>
           </motion.p>
 
           <motion.button

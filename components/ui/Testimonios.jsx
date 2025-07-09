@@ -5,24 +5,14 @@ const testimonials = [
   {
     name: "María Elena, mamá de Valentina (5 años)",
     quote:
-      "He probado otras plataformas educativas, pero esta es diferente. Tiene corazón. No es solo contenido bonito, es una experiencia personalizada, emocionalmente inteligente y con una visión clara de futuro. Siento que mi hija está aprendiendo con sentido, y eso no tiene precio.",
-  },
-  {
-    name: "Laura M., mamá de Sofía (6 años)",
-    quote:
-      "Nunca había visto a Sofía tan motivada por aprender. La plataforma no solo se adapta a su ritmo, ¡sino que también reconoce cómo se siente! Me emociona ver cómo empieza a expresar mejor sus ideas y emociones. Es como si alguien la estuviera guiando con cariño y precisión al mismo tiempo.",
-  },
-  {
-    name: "Javier y Lucía, papás de Tomás (4 años)",
-    quote:
-      "Gracias a los informes semanales entendemos mucho mejor en qué áreas necesita apoyo y cómo ayudarlo desde casa. Nos sentimos realmente parte de su proceso educativo, no como espectadores, sino como mentores. Esta herramienta nos unió más como familia.",
+      "Cuando empecé a explorar la aplicación, me sorprendió lo bien pensada que está. No es solo una app bonita o entretenida, está creada con una comprensión real de cómo aprenden los niños. Para mí es importante cómo estimula áreas clave del desarrollo cognitivo: memoria, atención, razonamiento… todo desde un enfoque lúdico, sin forzar ni apurar, todo fluyendo con naturalidad. Cada actividad tiene un sentido claro, propone desafíos reales pero alcanzables y respeta los ritmos de cada niño. Sé que será una gran aliada en el crecimiento mental y emocional de mi hija. Como madre, me da muchísima tranquilidad saber que existe algo así.",
   },
 ];
 
 export default function Testimonios() {
   return (
     <section id="testimonials" className="testimonials-section">
-      <h2 className="testimonial-title">Testimonios</h2>
+      <h2 className="testimonial-title">Testimonio</h2>
       <h5 className="testimonial-subtitle">así vivimos el aprendizaje en casa</h5>
       <div className="testimonials-grid">
         {testimonials.map((t, idx) => (

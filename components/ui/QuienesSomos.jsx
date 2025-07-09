@@ -40,16 +40,16 @@ export default function QuienesSomos() {
           <h2 className="quienesSomos-title">QUIÉNES SOMOS</h2>
           <h5 className="quienesSomos-subtitle">nuestra visión y misión</h5>
           <p className="about-paragraph">
-            Queremos que las primeras 500 familias fundadoras accedan a nuestra IA educativa antes que nadie.
+            <b>Solo las primeras 500 familias fundadoras tendrán acceso anticipado a nuestra IA educativa revolucionaria.</b>
           </p>
           <p className="about-paragraph">
-            ¿Por qué? Porque no creemos que la educación estándar y masificada ayude a todos los niños. Creemos en niños con pensamiento crítico y padres que toman las riendas.
+            ¿Por qué? Porque la educación tradicional y masiva ya no funciona para todos los niños. Nosotros apostamos por <b>niños con pensamiento crítico y padres que lideran el cambio.</b>
           </p>
           <p className="about-paragraph">
-            Forma parte del inicio. No como usuario, sino como co-creador.
+            Forma parte del inicio. <b>No como usuario, sino como co-creador.</b>
           </p>
           <p className="about-paragraph">
-            Esta oportunidad no volverá. Tendrás acceso exclusivo, comunidad privada, y un descuento del 50% para siempre.
+            Esta oportunidad es única e irrepetible. Disfruta de acceso exclusivo, una comunidad privada y un <b>50% de descuento de por vida.</b>
           </p>
         </motion.div>
       </div>
